@@ -1,0 +1,930 @@
+/* ==========================================================================
+   PACHALAB - SUBPAGES & QUOTATION MODULE STYLES
+   Colors: --green: #168d08, --green-dark: #095b12, --lime: #a4ed16, --dark: #052c20
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVIGATION DROPDOWNS (DESKTOP & MOBILE)
+   -------------------------------------------------------------------------- */
+.navlinks .nav-dropdown-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navlinks .nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.navlinks .nav-dropdown-trigger:hover,
+.navlinks .nav-dropdown-item:hover .nav-dropdown-trigger,
+.navlinks .nav-dropdown-trigger.active {
+  color: var(--green);
+  background: rgba(22, 141, 8, 0.08);
+  border-color: rgba(22, 141, 8, 0.15);
+}
+
+.navlinks .nav-dropdown-trigger .chevron-icon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s var(--ease);
+}
+
+.navlinks .nav-dropdown-item:hover .nav-dropdown-trigger .chevron-icon {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 270px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px -8px rgba(5, 44, 32, 0.16), 0 0 0 1px rgba(22, 141, 8, 0.06);
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.25s var(--ease);
+  z-index: 100;
+}
+
+.nav-dropdown-item:hover .nav-dropdown-menu,
+.nav-dropdown-item:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+
+.nav-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-link:hover {
+  background: var(--pale);
+  color: var(--green);
+  transform: translateX(4px);
+}
+
+.nav-dropdown-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(22, 141, 8, 0.1);
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.nav-dropdown-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-dropdown-text strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.nav-dropdown-text small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 6px 8px;
+}
+
+/* Mobile Drawer Dropdown Accordeon */
+.drawer-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 14px;
+  transition: background 0.2s ease;
+}
+
+.drawer-accordion-btn:hover {
+  background: var(--pale);
+}
+
+.drawer-submenu {
+  display: none;
+  padding: 4px 0 8px 18px;
+}
+
+.drawer-submenu.is-open {
+  display: block;
+}
+
+.drawer-sublink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.drawer-sublink:hover,
+.drawer-sublink.active {
+  color: var(--green);
+  background: rgba(22, 141, 8, 0.08);
+  padding-left: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   2. SUBPAGE HERO & BREADCRUMBS
+   -------------------------------------------------------------------------- */
+.subpage-hero {
+  position: relative;
+  padding: 130px 24px 60px;
+  background: linear-gradient(180deg, #f3faef 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+.subpage-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.breadcrumb-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--green);
+}
+
+.breadcrumb-nav span.current {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(22, 141, 8, 0.12);
+  color: var(--green-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border: 1px solid rgba(22, 141, 8, 0.2);
+}
+
+.subpage-hero h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--dark);
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.subpage-hero h1 span {
+  color: var(--green);
+}
+
+.subpage-hero p.lead {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 780px;
+  margin: 0 0 28px 0;
+}
+
+.subpage-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   3. SERVICE DETAILS & SECTIONS (.01, .02, etc.)
+   -------------------------------------------------------------------------- */
+.details-section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-tagline {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.section-heading-lg {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--dark);
+  margin: 0 0 16px 0;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.detail-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 32px 26px;
+  position: relative;
+  transition: all 0.35s var(--ease);
+  box-shadow: 0 4px 18px -4px rgba(5, 44, 32, 0.05);
+}
+
+.detail-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(22, 141, 8, 0.4);
+  box-shadow: 0 18px 36px -8px rgba(22, 141, 8, 0.14);
+}
+
+.detail-card-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--green);
+  opacity: 0.9;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.detail-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 16px 0;
+}
+
+.detail-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.detail-card-list li i,
+.detail-card-list li svg {
+  color: var(--green);
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   4. EQUIPMENT CATALOG GALLERY (FOR VENTA Y ALQUILER)
+   -------------------------------------------------------------------------- */
+.equipos-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.equipo-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.equipo-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(22, 141, 8, 0.4);
+  box-shadow: 0 16px 30px -6px rgba(22, 141, 8, 0.15);
+}
+
+.equipo-media {
+  position: relative;
+  height: 220px;
+  background: #f8fbf6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.equipo-media img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.4s var(--ease);
+}
+
+.equipo-card:hover .equipo-media img {
+  transform: scale(1.06);
+}
+
+.equipo-code-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(5, 44, 32, 0.85);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.equipo-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.equipo-body h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0 0 6px 0;
+}
+
+.equipo-spec {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.equipo-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+
+.equipo-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+.equipo-price small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.equipo-btn-cotizar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green);
+  text-decoration: none;
+  background: rgba(22, 141, 8, 0.08);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.equipo-btn-cotizar:hover {
+  background: var(--green);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   5. FAQ ACCORDION
+   -------------------------------------------------------------------------- */
+.faq-wrap {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 850px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.25s var(--ease);
+}
+
+.faq-item.is-open {
+  border-color: rgba(22, 141, 8, 0.4);
+  box-shadow: 0 8px 24px -4px rgba(22, 141, 8, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dark);
+  cursor: pointer;
+  gap: 14px;
+}
+
+.faq-question i,
+.faq-question svg {
+  color: var(--green);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease);
+}
+
+.faq-item.is-open .faq-question i,
+.faq-item.is-open .faq-question svg {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 22px 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.faq-item.is-open .faq-answer {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   6. COTIZACIÓN ONLINE - INTERACTIVE CALC & PDF GENERATOR
+   -------------------------------------------------------------------------- */
+.quote-page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.quote-calculator-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px -8px rgba(5, 44, 32, 0.08);
+  padding: clamp(24px, 4vw, 44px);
+  position: relative;
+}
+
+.calc-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--line);
+}
+
+.calc-section-title i {
+  color: var(--green);
+}
+
+/* Client Info Form Fields Grid */
+.client-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 36px;
+}
+
+.quote-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote-input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.quote-input-group label span.req {
+  color: #dc2626;
+}
+
+.quote-input-group input,
+.quote-input-group select,
+.quote-input-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: #fdfefe;
+  transition: all 0.2s ease;
+}
+
+.quote-input-group input:focus,
+.quote-input-group select:focus,
+.quote-input-group textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(22, 141, 8, 0.12);
+  background: #ffffff;
+}
+
+/* Quotation Dynamic Table */
+.calc-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.calc-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.calc-table th {
+  background: #052c20;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 12px;
+  border: none;
+}
+
+.calc-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+  vertical-align: middle;
+}
+
+.calc-table tr:last-child td {
+  border-bottom: none;
+}
+
+.calc-table tbody tr:hover {
+  background: #fafdf8;
+}
+
+.calc-table select.item-select {
+  width: 100%;
+  min-width: 220px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-size: 0.86rem;
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.calc-table select.item-select:focus {
+  border-color: var(--green);
+  outline: none;
+}
+
+.calc-table input.item-qty {
+  width: 75px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.calc-table input.item-qty:focus {
+  border-color: var(--green);
+  outline: none;
+}
+
+.calc-table .text-center { text-align: center; }
+.calc-table .text-right { text-align: right; }
+
+.calc-table td.col-price,
+.calc-table td.col-subtotal {
+  font-weight: 700;
+  color: var(--dark);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.btn-remove-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-row:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Total Box & Bottom Actions */
+.calc-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: #f7faf5;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+
+.calc-total-box {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.calc-total-box span.total-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.calc-total-box span.total-amount {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -0.02em;
+}
+
+.calc-total-box span.total-currency {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.calc-table-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-add-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--green);
+  border: 1.5px solid var(--green);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add-item:hover {
+  background: rgba(22, 141, 8, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn-generate-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: #ffffff;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(22, 141, 8, 0.4);
+  transition: all 0.25s var(--ease);
+}
+
+.btn-generate-pdf:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(22, 141, 8, 0.5);
+  background: linear-gradient(135deg, #1aa309 0%, #0a6b16 100%);
+}
+
+.btn-generate-pdf:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Info Alert Box in Quotation */
+.quote-terms-box {
+  background: #fbfdf9;
+  border-left: 4px solid var(--green);
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.quote-terms-box strong {
+  color: var(--dark);
+}
+
+/* --------------------------------------------------------------------------
+   7. FORMULARIO GENERAL "COTIZAR AHORA"
+   -------------------------------------------------------------------------- */
+.general-quote-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .general-quote-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quote-sidebar-card {
+  background: linear-gradient(145deg, #052c20 0%, #093f2f 100%);
+  color: #ffffff;
+  padding: 36px 30px;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px -8px rgba(5, 44, 32, 0.3);
+}
+
+.quote-sidebar-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 14px 0;
+  color: #ffffff;
+}
+
+.quote-sidebar-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.quote-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.quote-sidebar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.quote-sidebar-btn:hover {
+  background: rgba(164, 237, 22, 0.15);
+  border-color: var(--lime);
+  color: var(--lime);
+  transform: translateX(4px);
+}

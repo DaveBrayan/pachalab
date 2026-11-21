@@ -10,92 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/pachalab-pages.css') }}">
 </head>
 
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="page">
     <header class="top-shell" id="inicio">
-      <div class="nav-wrapper">
-        <nav class="nav" id="mainNav">
-          <a class="brand" href="#inicio">
-            <span class="brand-mark"><i data-lucide="leaf"></i></span>
-            <span>Pacha<span>Lab</span><small>Soluciones que cuidan tu entorno</small></span>
-          </a>
-          <div class="navlinks" id="navLinks">
-            <a class="active" href="#inicio"><i data-lucide="home"></i><span>Inicio</span></a>
-            <a href="#quienes-somos"><i data-lucide="shield-check"></i><span>Quiénes Somos</span></a>
-            <a href="#contacto"><i data-lucide="phone"></i><span>Contactos</span></a>
-          </div>
-          <div class="nav-actions">
-            <a class="btn btn-green nav-cta" href="#cotizar">
-              <span>Cotizar ahora</span> <i data-lucide="arrow-right"></i>
-            </a>
-            <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navDrawer">
-              <span class="nav-toggle-bar"></span>
-              <span class="nav-toggle-bar"></span>
-              <span class="nav-toggle-bar"></span>
-            </button>
-          </div>
-        </nav>
-      </div>
+      @include('partials.navbar')
 
-      <!-- MOBILE NAVIGATION DRAWER & BACKDROP -->
-      <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
-      <aside class="nav-drawer" id="navDrawer" aria-label="Menú móvil" aria-hidden="true">
-        <div class="nav-drawer-header">
-          <a class="brand" href="#inicio">
-            <span class="brand-mark"><i data-lucide="leaf"></i></span>
-            <span>Pacha<span>Lab</span><small>Menú principal</small></span>
-          </a>
-          <button type="button" class="nav-drawer-close" id="navDrawerClose" aria-label="Cerrar menú">
-            <i data-lucide="x"></i>
-          </button>
-        </div>
-
-        <div class="nav-drawer-links">
-          <a class="drawer-link active" href="#inicio">
-            <span class="drawer-link-icon"><i data-lucide="home"></i></span>
-            <span class="drawer-link-text">
-              <strong>Inicio</strong>
-              <small>Portada principal</small>
-            </span>
-            <i data-lucide="chevron-right" class="drawer-chevron"></i>
-          </a>
-          <a class="drawer-link" href="#quienes-somos">
-            <span class="drawer-link-icon"><i data-lucide="shield-check"></i></span>
-            <span class="drawer-link-text">
-              <strong>Quiénes Somos</strong>
-              <small>PACHABOL SRL y acreditaciones</small>
-            </span>
-            <i data-lucide="chevron-right" class="drawer-chevron"></i>
-          </a>
-          <a class="drawer-link" href="#contacto">
-            <span class="drawer-link-icon"><i data-lucide="phone"></i></span>
-            <span class="drawer-link-text">
-              <strong>Contactos</strong>
-              <small>Atención técnica y cotizaciones</small>
-            </span>
-            <i data-lucide="chevron-right" class="drawer-chevron"></i>
-          </a>
-        </div>
-
-        <div class="nav-drawer-footer">
-          <a class="btn btn-green w-full" href="#cotizar">
-            <i data-lucide="calculator"></i>
-            <span>Cotizar ahora</span>
-            <i data-lucide="arrow-right"></i>
-          </a>
-          <div class="nav-drawer-contact">
-            <a href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
-              <i data-lucide="message-square"></i> WhatsApp: 76358189
-            </a>
-            <a href="mailto:laboratorio@pachabol.com">
-              <i data-lucide="mail"></i> laboratorio@pachabol.com
-            </a>
-          </div>
-        </div>
-      </aside>
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><i data-lucide="sprout"></i> Bienvenidos a PachaLab</div>
@@ -103,7 +26,7 @@
           <p>La seguridad de tus proyectos comienza con datos confiables. Confía en <b>PachaLab</b> para obtener
             resultados precisos y confiables, asegurando el cumplimiento normativo.</p>
           <div class="hero-actions">
-            <a class="btn btn-green" href="https://pachalab.pachabol.com/cotizar-ahora/" target="_blank" rel="noopener">
+            <a class="btn btn-green" href="{{ route('cotizar.ahora') }}">
               <i data-lucide="calculator"></i> Cotizar ahora <i data-lucide="arrow-right"></i>
             </a>
             <a class="btn btn-outline" href="#quienes-somos">
@@ -197,7 +120,7 @@
                   <span>Agua</span>
                   <span>Ruido</span>
                 </div>
-                <a class="more" href="https://pachalab.pachabol.com/monitoreo-ambiental/" target="_blank" rel="noopener">
+                <a class="more" href="{{ route('servicios.ambiental') }}">
                   Más Información <span><i data-lucide="chevron-right"></i></span>
                 </a>
               </div>
@@ -221,7 +144,7 @@
                   <span>Químicos</span>
                   <span>SST</span>
                 </div>
-                <a class="more" href="https://pachalab.pachabol.com/monitoreo-ocupacional/" target="_blank" rel="noopener">
+                <a class="more" href="{{ route('servicios.ocupacional') }}">
                   Más Información <span><i data-lucide="chevron-right"></i></span>
                 </a>
               </div>
@@ -245,7 +168,7 @@
                   <span>Alquiler</span>
                   <span>Calibrados</span>
                 </div>
-                <a class="more" href="https://pachalab.pachabol.com/venta-y-alquiler-de-equipos/" target="_blank" rel="noopener">
+                <a class="more" href="{{ route('servicios.equipos') }}">
                   Más Información <span><i data-lucide="chevron-right"></i></span>
                 </a>
               </div>
@@ -365,32 +288,29 @@
             </div>
           </div>
           <div class="quote-actions">
-            <a class="quote-action spotlight-card anim-card tilt-card" href="#contacto" data-quote-service="Monitoreo Ambiental">
+            <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.ambiental') }}" data-quote-service="Monitoreo Ambiental">
               <div class="quote-action-icon"><i data-lucide="trees"></i></div>
               <div>
                 <strong>Cotizar Monitoreo Ambiental</strong>
-                <small>Aire, agua y ruido ambiental</small>
+                <small>Aire, agua y ruido ambiental (PDF)</small>
               </div>
-              <div class="quote-action-cta">Seleccionar <span><i data-lucide="arrow-right"></i></span></div>
+              <div class="quote-action-cta">Abrir cotizador <span><i data-lucide="arrow-right"></i></span></div>
             </a>
-            <a class="quote-action spotlight-card anim-card tilt-card"
-              href="https://pachalab.pachabol.com/cotiza-monitoreo-ocupacional/" target="_blank" rel="noopener"
-              data-quote-service="Monitoreo Ocupacional">
+            <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.ocupacional') }}" data-quote-service="Monitoreo Ocupacional">
               <div class="quote-action-icon"><i data-lucide="hard-hat"></i></div>
               <div>
                 <strong>Cotizar Monitoreo Ocupacional</strong>
-                <small>Agentes físicos y químicos SST</small>
+                <small>Agentes físicos y químicos SST (PDF)</small>
               </div>
-              <div class="quote-action-cta">Ir al cotizador <span><i data-lucide="arrow-up-right"></i></span></div>
+              <div class="quote-action-cta">Abrir cotizador <span><i data-lucide="arrow-right"></i></span></div>
             </a>
-            <a class="quote-action spotlight-card anim-card tilt-card" href="#contacto"
-              data-quote-service="Venta y Alquiler de Equipos">
+            <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.equipos') }}" data-quote-service="Venta y Alquiler de Equipos">
               <div class="quote-action-icon"><i data-lucide="wrench"></i></div>
               <div>
                 <strong>Cotizar Venta y Alquiler de equipos</strong>
-                <small>Equipos certificados y calibrados</small>
+                <small>Equipos certificados y calibrados (PDF)</small>
               </div>
-              <div class="quote-action-cta">Seleccionar <span><i data-lucide="arrow-right"></i></span></div>
+              <div class="quote-action-cta">Abrir cotizador <span><i data-lucide="arrow-right"></i></span></div>
             </a>
           </div>
         </div>
@@ -453,41 +373,7 @@
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer-grid anim-up">
-        <div class="footer-brand">
-          <a class="brand" href="#inicio">
-            <span class="brand-mark"><i data-lucide="leaf"></i></span>
-            <span>Pacha<span>Lab</span><small>PACHABOL SRL</small></span>
-          </a>
-          <p>La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados
-            precisos y confiables, asegurando el cumplimiento normativo.</p>
-        </div>
-        <div>
-          <h4>Menú</h4>
-          <div class="footer-menu">
-            <a href="#inicio">Inicio</a>
-            <a href="https://pachalab.pachabol.com/quienes-somos/" target="_blank" rel="noopener">Quiénes Somos</a>
-            <a href="https://pachalab.pachabol.com/monitoreo-ambiental/" target="_blank" rel="noopener">Monitoreo Ambiental</a>
-            <a href="https://pachalab.pachabol.com/monitoreo-ocupacional/" target="_blank" rel="noopener">Monitoreo Ocupacional</a>
-            <a href="https://pachalab.pachabol.com/venta-y-alquiler-de-equipos/" target="_blank" rel="noopener">Venta y Alquiler de Equipos</a>
-            <a href="https://pachalab.pachabol.com/contactos/" target="_blank" rel="noopener">Contactos</a>
-          </div>
-        </div>
-        <div>
-          <h4>Contáctanos</h4>
-          <div class="footer-contact">
-            <a href="mailto:laboratorio@pachabol.com"><i data-lucide="mail"></i> laboratorio@pachabol.com</a>
-            <a href="https://wa.link/3lf4u6" target="_blank" rel="noopener"><i data-lucide="phone"></i> 76358189</a>
-            <a href="https://www.facebook.com/pachaconsultingbolivia" target="_blank" rel="noopener"><i data-lucide="share-2"></i> Facebook</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 PachaLab — PACHABOL SRL. Todos los derechos reservados.</span>
-        <span>Monitoreo Ambiental · Monitoreo Ocupacional · Venta y Alquiler de Equipos</span>
-      </div>
-    </footer>
+    @include('partials.footer')
   </div>
 
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
@@ -500,6 +386,30 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   <script src="{{ asset('js/home.js') }}" defer></script>
   <script type="module" src="{{ asset('js/home-globe.js') }}"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sToggle = document.getElementById('drawerServiciosToggle');
+      const sMenu = document.getElementById('drawerServiciosSubmenu');
+      const sChev = document.getElementById('drawerServiciosChevron');
+      if (sToggle && sMenu) {
+        sToggle.addEventListener('click', function() {
+          const isOpen = sMenu.classList.toggle('is-open');
+          if (sChev) sChev.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      }
+
+      const cToggle = document.getElementById('drawerCotizacionToggle');
+      const cMenu = document.getElementById('drawerCotizacionSubmenu');
+      const cChev = document.getElementById('drawerCotizacionChevron');
+      if (cToggle && cMenu) {
+        cToggle.addEventListener('click', function() {
+          const isOpen = cMenu.classList.toggle('is-open');
+          if (cChev) cChev.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
