@@ -194,11 +194,6 @@
           document.getElementById('departamento').focus();
           return;
         }
-        if (!cargo.trim()) {
-          Swal.fire({ icon: 'warning', title: 'Campo requerido', text: 'Por favor, ingrese el Cargo.' });
-          document.getElementById('cargo').focus();
-          return;
-        }
         if (!telefono.trim()) {
           Swal.fire({ icon: 'warning', title: 'Campo requerido', text: 'Por favor, ingrese el Teléfono / Celular de contacto.' });
           document.getElementById('telefono').focus();
@@ -342,7 +337,7 @@
         doc.setFont(undefined, 'bold');
         doc.text('Cargo:', marginLeft + 95, yPos);
         doc.setFont(undefined, 'normal');
-        doc.text(cargo, marginLeft + 115, yPos);
+        doc.text(cargo || '-', marginLeft + 115, yPos);
 
         yPos += 5;
         doc.setFont(undefined, 'bold');

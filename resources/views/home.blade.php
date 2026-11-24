@@ -63,28 +63,21 @@
                   <span class="cert-dot"><i data-lucide="check"></i></span>
                   <span class="cert-code">01 · MMAyA</span>
                 </div>
-                <span class="cert-text">Registro en el Ministerio de Medio Ambiente y Agua.</span>
+                <span class="cert-text">Consultores Ambientales categoría “C” con registro en el Ministerio de Producción Sostenible, Medio Ambiente y Agua.</span>
               </div>
               <div class="cert-item spotlight-card tilt-card anim-card">
                 <div class="cert-top">
                   <span class="cert-dot"><i data-lucide="check"></i></span>
                   <span class="cert-code">02 · MTEPS</span>
                 </div>
-                <span class="cert-text">Registro de profesionales en el Ministerio de Trabajo, Empleo y Previsión Social.</span>
+                <span class="cert-text">Profesionales en Seguridad Ocupacional categoría “A” con registro en el Ministerio de Trabajo, Empleo y Previsión Social.</span>
               </div>
-              <div class="cert-item spotlight-card tilt-card anim-card">
+              <div class="cert-item spotlight-card tilt-card anim-card cert-item-wide">
                 <div class="cert-top">
                   <span class="cert-dot"><i data-lucide="check"></i></span>
-                  <span class="cert-code">03 · Trazabilidad</span>
+                  <span class="cert-code">03 · Equipo Técnico</span>
                 </div>
-                <span class="cert-text">Certificados de calibración y trazabilidad nacional e internacional.</span>
-              </div>
-              <div class="cert-item spotlight-card tilt-card anim-card">
-                <div class="cert-top">
-                  <span class="cert-dot"><i data-lucide="check"></i></span>
-                  <span class="cert-code">04 · Equipo Técnico</span>
-                </div>
-                <span class="cert-text">Personal técnico certificado y capacitado constantemente.</span>
+                <span class="cert-text">Personal técnico con amplia experiencia y capacitación constante.</span>
               </div>
             </div>
           </div>
@@ -287,7 +280,7 @@
               <span>Modo Referencial: estimación rápida lista para descargar.</span>
             </div>
           </div>
-          <div class="quote-actions">
+          <div class="quote-actions" id="quoteActionsReferencial">
             <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.ambiental') }}" data-quote-service="Monitoreo Ambiental">
               <div class="quote-action-icon"><i data-lucide="trees"></i></div>
               <div>
@@ -330,12 +323,12 @@
           rel="noopener"><i data-lucide="file-down"></i> Descargar formulario <i data-lucide="arrow-right"></i></a>
       </section>
 
-      <section class="contact" id="contacto">
+      <!-- SECCIÓN CONTACTO / COTIZACIÓN PERSONALIZADA (OCULTA EN MODO REFERENCIAL) -->
+      <section class="contact is-hidden" id="contacto">
         <div class="contact-copy anim-left">
           <div class="pill"><i data-lucide="mail"></i> Contáctanos</div>
           <h2>¿Necesitas un servicio?<br>Contáctanos ahora</h2>
-          <p>La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados
-            precisos y confiables, asegurando el cumplimiento normativo.</p>
+          <p>La seguridad de tus proyectos comienza con datos confiables. Solicita tu cotización personalizada para proyectos a medida, estudios complejos o licitaciones.</p>
           <a class="btn btn-lime" href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
             <i data-lucide="message-square"></i> WhatsApp 76358189 <i data-lucide="arrow-right"></i>
           </a>
@@ -353,22 +346,24 @@
         </div>
         <form class="contact-form anim-right" id="quoteForm">
           <div class="form-row">
-            <input required id="quoteNameInput" placeholder="Nombre" aria-label="Nombre">
-            <input required id="quoteEmailInput" type="email" placeholder="Correo" aria-label="Correo">
+            <input required id="quoteNameInput" placeholder="Nombre completo *" aria-label="Nombre">
+            <input required id="quoteEmailInput" type="email" placeholder="Correo electrónico *" aria-label="Correo">
           </div>
           <div class="form-row">
-            <select id="quoteTypeInput" aria-label="Tipo de cotización">
-              <option value="Referencial">Cotización: Referencial</option>
-              <option value="Personalizada">Cotización: Personalizada</option>
-            </select>
+            <input required id="quotePhoneInput" type="tel" placeholder="WhatsApp / Celular *" aria-label="Teléfono">
+            <input id="quoteCompanyInput" placeholder="Empresa o Institución (Opcional)" aria-label="Empresa">
+          </div>
+          <div class="form-row">
             <select id="quoteServiceInput" aria-label="Servicio">
               <option value="Monitoreo Ambiental">Monitoreo Ambiental</option>
               <option value="Monitoreo Ocupacional">Monitoreo Ocupacional</option>
               <option value="Venta y Alquiler de Equipos">Venta y Alquiler de Equipos</option>
+              <option value="Servicio Integral">Servicio Integral</option>
             </select>
+            <input type="hidden" id="quoteTypeInput" value="Personalizada">
           </div>
-          <textarea required id="quoteMsgInput" placeholder="Detalla los servicios que necesitas..." aria-label="Tu mensaje"></textarea>
-          <button type="submit"><i data-lucide="send"></i> Solicitar Presupuesto</button>
+          <textarea required id="quoteMsgInput" placeholder="Describe detalladamente los servicios solicitados, ubicación del proyecto o requerimientos específicos..." aria-label="Tu mensaje"></textarea>
+          <button type="submit"><i data-lucide="send"></i> Solicitar Presupuesto Personalizado</button>
         </form>
       </section>
     </main>

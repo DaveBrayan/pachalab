@@ -47,8 +47,8 @@
         <input type="text" id="departamento" name="departamento" placeholder="Ej. Cochabamba / La Paz" required>
       </div>
       <div class="quote-input-group">
-        <label for="cargo">Cargo <span class="req">*</span></label>
-        <input type="text" id="cargo" name="cargo" placeholder="Ej. Encargado de Seguridad y Salud (SST)" required>
+        <label for="cargo">Cargo del Solicitante <small style="color: var(--muted); font-weight: normal;">(Opcional)</small></label>
+        <input type="text" id="cargo" name="cargo" placeholder="Ej. Encargado de Seguridad y Salud (SST)">
       </div>
       <div class="quote-input-group">
         <label for="telefono">Teléfono / Celular <span class="req">*</span></label>

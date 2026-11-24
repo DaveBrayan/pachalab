@@ -928,3 +928,79 @@
   color: var(--lime);
   transform: translateX(4px);
 }
+
+/* --------------------------------------------------------------------------
+   8. MODE REFERENCIAL VS PERSONALIZADA (HOME QUOTATION TOGGLE)
+   -------------------------------------------------------------------------- */
+.certs-grid .cert-item-wide {
+  grid-column: 1 / -1;
+}
+
+.quote-actions.is-hidden {
+  display: none !important;
+}
+
+.contact.is-hidden {
+  display: none !important;
+}
+
+/* Modo Personalizada: Cuadro verde oscuro con formulario blanco ampliado (>50%) */
+.contact.mode-personalizada {
+  display: grid !important;
+  grid-template-columns: 1fr 1.35fr;
+  grid-template-areas:
+    "copy form"
+    "info form";
+  gap: 36px;
+  align-items: start;
+  margin: 32px 1.2% 0;
+  padding: 42px 4%;
+  border-radius: 30px;
+  animation: fadeInPersonalizada 0.4s var(--ease);
+}
+
+@keyframes fadeInPersonalizada {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact.mode-personalizada .contact-copy {
+  grid-area: copy;
+}
+
+.contact.mode-personalizada .contact-info {
+  grid-area: info;
+  border-left: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 0;
+  padding-top: 22px;
+}
+
+.contact.mode-personalizada .contact-form {
+  grid-area: form;
+  width: 100%;
+  padding: 34px 30px;
+  border-radius: 26px;
+  box-shadow: 0 20px 50px rgba(0, 28, 18, 0.45);
+}
+
+.contact.mode-personalizada .contact-form textarea {
+  height: 120px;
+}
+
+@media (max-width: 900px) {
+  .contact.mode-personalizada {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "info"
+      "form";
+  }
+}
+

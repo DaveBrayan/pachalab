@@ -362,14 +362,17 @@
     });
   });
 
-  // 8. Quote Form & Mode Selector
+  // 8. Quote Form & Mode Selector (Referencial vs Personalizada)
   const quoteForm = document.getElementById('quoteForm');
   const quoteTypeInput = document.getElementById('quoteTypeInput');
   const quoteServiceInput = document.getElementById('quoteServiceInput');
   const quoteModeHint = document.getElementById('quoteModeHint');
+  const quoteActions = document.getElementById('quoteActionsReferencial');
+  const contactSection = document.getElementById('contacto');
+
   const modeDescriptions = {
-    Referencial: 'Modo Referencial: estimación rápida lista para descargar.',
-    Personalizada: 'Modo Personalizada: presupuesto técnico adaptado a tu proyecto y ubicación.'
+    Referencial: 'Modo Referencial: selecciona un servicio arriba para calcular y descargar tu PDF al instante.',
+    Personalizada: 'Modo Personalizada: completa el formulario detallado a continuación para un presupuesto técnico a medida.'
   };
 
   function pulseForm() {
@@ -379,17 +382,54 @@
     quoteForm.classList.add('form-highlight');
   }
 
-  document.querySelectorAll('.quote-pill').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.quote-pill').forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      const mode = btn.dataset.quoteType;
-      if (quoteTypeInput) quoteTypeInput.value = mode;
-      if (quoteModeHint) {
-        const span = quoteModeHint.querySelector('span');
-        if (span) span.textContent = modeDescriptions[mode] || '';
+  function setQuoteMode(mode, shouldScroll) {
+    if (shouldScroll === undefined) shouldScroll = false;
+
+    document.querySelectorAll('.quote-pill').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.quoteType === mode);
+    });
+
+    if (quoteTypeInput) quoteTypeInput.value = mode;
+
+    if (quoteModeHint) {
+      const span = quoteModeHint.querySelector('span');
+      if (span) span.textContent = modeDescriptions[mode] || '';
+    }
+
+    if (mode === 'Personalizada') {
+      // Ocultar cotizaciones referenciales de arriba
+      if (quoteActions) quoteActions.classList.add('is-hidden');
+      // Mostrar sección verde oscura de contacto / personalizada
+      if (contactSection) {
+        contactSection.classList.remove('is-hidden');
+        contactSection.classList.add('mode-personalizada');
+        if (shouldScroll) {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
       pulseForm();
+    } else {
+      // Modo Referencial: mostrar cotizaciones referenciales de arriba
+      if (quoteActions) quoteActions.classList.remove('is-hidden');
+      // Ocultar sección verde oscura de contacto
+      if (contactSection) {
+        contactSection.classList.add('is-hidden');
+        contactSection.classList.remove('mode-personalizada');
+      }
+    }
+  }
+
+  document.querySelectorAll('.quote-pill').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const mode = btn.dataset.quoteType;
+      setQuoteMode(mode, mode === 'Personalizada');
+    });
+  });
+
+  // Si alguien hace clic en un enlace hacia #contacto (por ej. desde el menú), activar modo Personalizada
+  document.querySelectorAll('a[href*="#contacto"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      setQuoteMode('Personalizada', true);
     });
   });
 
@@ -400,22 +440,49 @@
     });
   });
 
+  // Envío del formulario de cotización personalizada
   if (quoteForm) {
     quoteForm.addEventListener('submit', function(event) {
       event.preventDefault();
-      const type = quoteTypeInput ? quoteTypeInput.value : 'Referencial';
+      const name = (document.getElementById('quoteNameInput') || {}).value || '';
+      const email = (document.getElementById('quoteEmailInput') || {}).value || '';
+      const phone = (document.getElementById('quotePhoneInput') || {}).value || '';
+      const company = (document.getElementById('quoteCompanyInput') || {}).value || 'No especificada';
       const service = quoteServiceInput ? quoteServiceInput.value : 'Monitoreo Ambiental';
+      const msg = (document.getElementById('quoteMsgInput') || {}).value || '';
+
+      const waText = `*SOLICITUD DE COTIZACIÓN PERSONALIZADA*\n\n` +
+        `*Nombre:* ${name}\n` +
+        `*Correo:* ${email}\n` +
+        `*WhatsApp/Celular:* ${phone}\n` +
+        `*Empresa:* ${company}\n\n` +
+        `*Servicio:* ${service}\n\n` +
+        `*Detalles del Proyecto:*\n${msg}`;
+
+      const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent);
+      const baseUrl = isMobile ? "https://api.whatsapp.com/send?phone=" : "https://web.whatsapp.com/send?phone=";
+      const whatsappUrl = `${baseUrl}59176358189&text=${encodeURIComponent(waText)}`;
+
       if (window.Swal) {
         Swal.fire({
           icon: 'success',
-          title: '¡Solicitud lista!',
-          html: 'Tu cotización <b>' + type + '</b> para <b>' + service + '</b> está lista para enviarse.',
-          confirmButtonText: 'Entendido',
-          confirmButtonColor: '#168d08'
+          title: '¡Solicitud Lista para Enviar!',
+          html: `<p>Se abrirá WhatsApp para coordinar los detalles de tu cotización personalizada con nuestro equipo.</p>`,
+          confirmButtonText: 'Abrir WhatsApp',
+          confirmButtonColor: '#168d08',
+          showCancelButton: true,
+          cancelButtonText: 'Cerrar'
+        }).then(function(res) {
+          if (res.isConfirmed) {
+            window.open(whatsappUrl, '_blank');
+          }
         });
       } else {
-        alert('¡Gracias! Tu solicitud de cotización (' + type + ' - ' + service + ') está lista para enviarse.');
+        window.open(whatsappUrl, '_blank');
       }
     });
   }
+
+  // Inicializar estado por defecto (Referencial activo, contacto oculto)
+  setQuoteMode('Referencial', false);
 })();

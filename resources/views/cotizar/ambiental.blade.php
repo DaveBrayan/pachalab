@@ -47,8 +47,8 @@
         <input type="text" id="departamento" name="departamento" placeholder="Ej. La Paz / Santa Cruz" required>
       </div>
       <div class="quote-input-group">
-        <label for="cargo">Cargo del Solicitante <span class="req">*</span></label>
-        <input type="text" id="cargo" name="cargo" placeholder="Ej. Gerente de Medio Ambiente" required>
+        <label for="cargo">Cargo del Solicitante <small style="color: var(--muted); font-weight: normal;">(Opcional)</small></label>
+        <input type="text" id="cargo" name="cargo" placeholder="Ej. Gerente de Medio Ambiente">
       </div>
       <div class="quote-input-group">
         <label for="telefono">Teléfono / Celular <span class="req">*</span></label>
