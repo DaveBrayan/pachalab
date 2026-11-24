@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Venta y Alquiler de Equipos Certificados | PachaLab Bolivia')
+@section('title', 'Alquiler de Equipos Certificados | PachaLab Bolivia')
 
 @section('content')
 <!-- SUBPAGE HERO -->
@@ -9,12 +9,12 @@
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
       <a href="{{ route('home') }}"><i data-lucide="home"></i> Inicio</a>
       <span>/</span>
-      <span class="current">Venta y Alquiler de Equipos</span>
+      <span class="current">Alquiler de Equipos</span>
     </nav>
     <div class="hero-pill-badge">
       <i data-lucide="gauge"></i> Equipos con Calibración Certificada
     </div>
-    <h1>Venta y Alquiler de <span>Equipos</span></h1>
+    <h1>Alquiler de <span>Equipos</span></h1>
     <p class="lead">
       Amplía tus capacidades técnicas. Ponemos a tu disposición instrumentos de medición ambiental y ocupacional
       de marcas líderes a nivel mundial (Trotec, Extech, Temtop, PCE, Laserliner, Bosean), calibrados y listos para campo.
@@ -35,7 +35,7 @@
   <div class="section-tagline">Detalles del Servicio</div>
   <h2 class="section-heading-lg">Garantía, Respaldo y Trazabilidad Metrológica</h2>
   <p style="color: var(--muted); max-width: 760px; line-height: 1.6;">
-    Alquilar o adquirir un equipo con PachaLab te asegura mediciones confiables y respaldo profesional en cada etapa de tu proyecto.
+    Alquilar un equipo con PachaLab te asegura mediciones confiables y respaldo profesional en cada etapa de tu proyecto.
   </p>
 
   <div class="details-grid">
@@ -76,7 +76,7 @@
       </p>
       <ul class="detail-card-list">
         <li><i data-lucide="check-circle-2"></i> <span>Alquiler por día, semana completa o mes con tarifas preferenciales.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Venta de equipos nuevos bajo catálogo y pedido especial.</span></li>
+        <li><i data-lucide="check-circle-2"></i> <span>Tarifas preferenciales para alquileres prolongados o proyectos de larga duración.</span></li>
         <li><i data-lucide="check-circle-2"></i> <span>Despachos y envíos seguros a todos los departamentos de Bolivia.</span></li>
       </ul>
     </article>

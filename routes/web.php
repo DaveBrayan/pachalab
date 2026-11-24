@@ -26,6 +26,10 @@ Route::get('/venta-y-alquiler-de-equipos', function () {
     return view('servicios.equipos');
 })->name('servicios.equipos');
 
+Route::get('/alquiler-de-equipos', function () {
+    return view('servicios.equipos');
+});
+
 // Páginas de Cotizaciones
 // 1. Cotizar Ahora - Formulario general para todos los servicios
 Route::get('/cotizar-ahora', function () {
@@ -44,3 +48,7 @@ Route::get('/cotiza-monitoreo-ocupacional', function () {
 Route::get('/cotiza-venta-y-alquiler-de-equipos', function () {
     return view('cotizar.equipos');
 })->name('cotizar.equipos');
+
+Route::get('/cotiza-alquiler-de-equipos', function () {
+    return view('cotizar.equipos');
+});

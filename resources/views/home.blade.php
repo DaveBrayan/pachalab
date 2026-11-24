@@ -154,12 +154,12 @@
                   <span class="service-tag">Equipamiento Técnico</span>
                   <span class="service-num">03</span>
                 </div>
-                <h3>Venta y Alquiler de Equipos</h3>
+                <h3>Alquiler de Equipos</h3>
                 <p>Ofrecemos equipos calibrados para medición ambiental y ocupacional.</p>
                 <div class="service-specs">
-                  <span>Venta</span>
                   <span>Alquiler</span>
                   <span>Calibrados</span>
+                  <span>Por Día/Mes</span>
                 </div>
                 <a class="more" href="{{ route('servicios.equipos') }}">
                   Más Información <span><i data-lucide="chevron-right"></i></span>
@@ -297,10 +297,10 @@
               </div>
               <div class="quote-action-cta">Abrir cotizador <span><i data-lucide="arrow-right"></i></span></div>
             </a>
-            <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.equipos') }}" data-quote-service="Venta y Alquiler de Equipos">
+            <a class="quote-action spotlight-card anim-card tilt-card" href="{{ route('cotizar.equipos') }}" data-quote-service="Alquiler de Equipos">
               <div class="quote-action-icon"><i data-lucide="wrench"></i></div>
               <div>
-                <strong>Cotizar Venta y Alquiler de equipos</strong>
+                <strong>Cotizar Alquiler de Equipos</strong>
                 <small>Equipos certificados y calibrados (PDF)</small>
               </div>
               <div class="quote-action-cta">Abrir cotizador <span><i data-lucide="arrow-right"></i></span></div>
@@ -357,7 +357,7 @@
             <select id="quoteServiceInput" aria-label="Servicio">
               <option value="Monitoreo Ambiental">Monitoreo Ambiental</option>
               <option value="Monitoreo Ocupacional">Monitoreo Ocupacional</option>
-              <option value="Venta y Alquiler de Equipos">Venta y Alquiler de Equipos</option>
+              <option value="Alquiler de Equipos">Alquiler de Equipos</option>
               <option value="Servicio Integral">Servicio Integral</option>
             </select>
             <input type="hidden" id="quoteTypeInput" value="Personalizada">

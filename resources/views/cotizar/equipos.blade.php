@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cotizador Online Venta y Alquiler de Equipos | PachaLab')
+@section('title', 'Cotizador Online Alquiler de Equipos | PachaLab')
 
 @section('content')
 <!-- SUBPAGE HERO -->
@@ -11,12 +11,12 @@
       <span>/</span>
       <a href="{{ route('home') }}#cotizar">Cotización</a>
       <span>/</span>
-      <span class="current">Venta y Alquiler de Equipos</span>
+      <span class="current">Alquiler de Equipos</span>
     </nav>
     <div class="hero-pill-badge">
       <i data-lucide="wrench"></i> Cotización Referencial Online · Emisión Inmediata de PDF
     </div>
-    <h1>Cotizador <span>Venta y Alquiler de Equipos</span></h1>
+    <h1>Cotizador <span>Alquiler de Equipos</span></h1>
     <p class="lead">
       Selecciona los instrumentos de medición ambiental y ocupacional que necesitas, indica el número de días de alquiler
       y genera al instante tu cotización referencial oficial en PDF con tarifas y especificaciones técnicas.
@@ -167,7 +167,7 @@
     initCotizador({
       tipo: 'equipos',
       fondoUrl: '{{ asset("images/Cotizacion-vae-bn.jpg") }}',
-      empresa: 'PachaLab - Venta y Alquiler de Equipos'
+      empresa: 'PachaLab - Alquiler de Equipos'
     });
   });
 </script>

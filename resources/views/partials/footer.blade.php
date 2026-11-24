@@ -15,7 +15,7 @@
         <a href="{{ route('home') }}#quienes-somos">Quiénes Somos</a>
         <a href="{{ route('servicios.ambiental') }}">Monitoreo Ambiental</a>
         <a href="{{ route('servicios.ocupacional') }}">Monitoreo Ocupacional</a>
-        <a href="{{ route('servicios.equipos') }}">Venta y Alquiler de Equipos</a>
+        <a href="{{ route('servicios.equipos') }}">Alquiler de Equipos</a>
         <a href="{{ route('home') }}#contacto">Contactos</a>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <a href="{{ route('cotizar.ahora') }}">Cotizar Ahora (General)</a>
         <a href="{{ route('cotizar.ambiental') }}">Cotizador Ambiental (PDF)</a>
         <a href="{{ route('cotizar.ocupacional') }}">Cotizador Ocupacional (PDF)</a>
-        <a href="{{ route('cotizar.equipos') }}">Cotizador de Equipos (PDF)</a>
+        <a href="{{ route('cotizar.equipos') }}">Cotizador Alquiler de Equipos (PDF)</a>
       </div>
     </div>
     <div>
@@ -42,6 +42,6 @@
   </div>
   <div class="footer-bottom">
     <span>© {{ date('Y') }} PachaLab — PACHABOL SRL. Todos los derechos reservados.</span>
-    <span>Monitoreo Ambiental · Monitoreo Ocupacional · Venta y Alquiler de Equipos</span>
+    <span>Monitoreo Ambiental · Monitoreo Ocupacional · Alquiler de Equipos</span>
   </div>
 </footer>

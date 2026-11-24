@@ -67,7 +67,7 @@
           <select id="servicio" name="servicio" required>
             <option value="Monitoreo Ambiental">Monitoreo Ambiental (Aire, Agua, Ruido, Gases)</option>
             <option value="Monitoreo Ocupacional">Monitoreo Ocupacional (Iluminación, Ruido SST, Ergonomía)</option>
-            <option value="Venta y Alquiler de Equipos">Venta y Alquiler de Equipos Certificados</option>
+            <option value="Alquiler de Equipos">Alquiler de Equipos Certificados</option>
             <option value="Estudio Integral de Seguridad y Medio Ambiente">Estudio Integral de Seguridad y Medio Ambiente</option>
           </select>
         </div>
@@ -117,7 +117,7 @@
           <a class="quote-sidebar-btn" href="{{ route('cotizar.equipos') }}">
             <span style="display: flex; align-items: center; gap: 10px;">
               <i data-lucide="gauge" style="color: var(--lime);"></i>
-              <span>Cotizador Venta y Alquiler de Equipos</span>
+              <span>Cotizador Alquiler de Equipos</span>
             </span>
             <i data-lucide="arrow-right"></i>
           </a>

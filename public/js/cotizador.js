@@ -296,7 +296,7 @@
 
         doc.setProperties({
           title: `Cotización ${codigoCot} - ${empresa}`,
-          subject: `Cotización de ${tipo}`,
+          subject: `Cotización de ${tipo === 'equipos' ? 'Alquiler de Equipos' : tipo}`,
           author: 'PachaLab - Pachabol'
         });
 
@@ -432,6 +432,21 @@
             lineColor: [220, 220, 220],
             lineWidth: 0.2
           },
+          columnStyles: tipo === 'equipos' ? {
+            equipo: { halign: 'left' },
+            caracteristicas: { halign: 'left' },
+            codigo: { halign: 'center' },
+            dias: { halign: 'center' },
+            precio: { halign: 'right' },
+            subtotal: { halign: 'right' }
+          } : {
+            parametro: { halign: 'left' },
+            metodologia: { halign: 'left' },
+            unidad: { halign: 'center' },
+            cantidad: { halign: 'center' },
+            precio: { halign: 'right' },
+            subtotal: { halign: 'right' }
+          },
           headStyles: {
             fillColor: [22, 141, 8],
             textColor: 255,
@@ -442,11 +457,18 @@
             fillColor: [248, 251, 246]
           },
           didParseCell: function(data) {
+            // Alinear precios y subtotales estrictamente a la derecha en todas las páginas, cabeceras y celdas
+            if (data.column.dataKey === 'precio' || data.column.dataKey === 'subtotal') {
+              data.cell.styles.halign = 'right';
+            }
             // Última fila resaltada como total
             if (data.row.index === bodyRows.length - 1) {
               data.cell.styles.fontStyle = 'bold';
               data.cell.styles.textColor = [9, 91, 18];
               data.cell.styles.fillColor = [241, 249, 236];
+              if (data.column.dataKey === 'precio' || data.column.dataKey === 'subtotal') {
+                data.cell.styles.halign = 'right';
+              }
             }
           }
         });
@@ -514,13 +536,16 @@
           cancelButtonText: 'Cerrar'
         }).then((result) => {
           if (result.isConfirmed) {
+            const servicioNombre = tipo === 'equipos'
+              ? 'Alquiler de Equipos'
+              : (tipo === 'ambiental' ? 'Monitoreo Ambiental' : 'Monitoreo Ocupacional');
             const mensajeWa = `*SOLICITUD DE COTIZACIÓN N° ${codigoCot}*\n\n` +
               `*Cliente/Empresa:* ${institucion}\n` +
-              `*Responsable:* ${responsable} (${cargo})\n` +
+              `*Responsable:* ${responsable} (${cargo || '-'})\n` +
               `*Ciudad:* ${departamento}\n` +
               `*Teléfono:* ${telefono}\n` +
               `*Correo:* ${correo}\n\n` +
-              `*Servicio:* Cotización Referencial de ${tipo}\n` +
+              `*Servicio:* Cotización Referencial de ${servicioNombre}\n` +
               `*Total Estimado:* ${totalNum} Bs\n\n` +
               `He generado la cotización referencial en la web y deseo coordinar el servicio formal.`;
 

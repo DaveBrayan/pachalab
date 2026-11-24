@@ -16,7 +16,7 @@
 
       <!-- MENÚ DESPLEGABLE SERVICIOS -->
       <div class="nav-dropdown-item">
-        <button type="button" class="nav-dropdown-trigger {{ request()->is('monitoreo-*') || request()->is('venta-y-alquiler*') ? 'active' : '' }}">
+        <button type="button" class="nav-dropdown-trigger {{ request()->is('monitoreo-*') || request()->is('*alquiler*') || request()->is('*equipos*') ? 'active' : '' }}">
           <i data-lucide="layers"></i>
           <span>Servicios</span>
           <i data-lucide="chevron-down" class="chevron-icon"></i>
@@ -39,7 +39,7 @@
           <a class="nav-dropdown-link" href="{{ route('servicios.equipos') }}">
             <span class="nav-dropdown-icon"><i data-lucide="gauge"></i></span>
             <span class="nav-dropdown-text">
-              <strong>Venta y Alquiler de Equipos</strong>
+              <strong>Alquiler de Equipos</strong>
               <small>Instrumentos certificados y calibrados</small>
             </span>
           </a>
@@ -85,7 +85,7 @@
           <a class="nav-dropdown-link" href="{{ route('cotizar.equipos') }}">
             <span class="nav-dropdown-icon"><i data-lucide="wrench"></i></span>
             <span class="nav-dropdown-text">
-              <strong>Cotizador Equipos Online</strong>
+              <strong>Cotizador Alquiler de Equipos</strong>
               <small>Tarifas por día con descarga en PDF</small>
             </span>
           </a>
@@ -163,7 +163,7 @@
         <i data-lucide="hard-hat"></i> Monitoreo Ocupacional
       </a>
       <a class="drawer-sublink" href="{{ route('servicios.equipos') }}">
-        <i data-lucide="gauge"></i> Venta y Alquiler de Equipos
+        <i data-lucide="gauge"></i> Alquiler de Equipos
       </a>
     </div>
 
@@ -189,7 +189,7 @@
         <i data-lucide="file-check"></i> Monitoreo Ocupacional (PDF)
       </a>
       <a class="drawer-sublink {{ request()->routeIs('cotizar.equipos') ? 'active' : '' }}" href="{{ route('cotizar.equipos') }}">
-        <i data-lucide="wrench"></i> Venta y Alquiler Equipos (PDF)
+        <i data-lucide="wrench"></i> Alquiler de Equipos (PDF)
       </a>
     </div>
 
