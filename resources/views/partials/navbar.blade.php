@@ -2,7 +2,7 @@
   <nav class="nav" id="mainNav">
     <a class="brand" href="{{ route('home') }}">
       <span class="brand-mark"><i data-lucide="leaf"></i></span>
-      <span>Pacha<span>Lab</span><small>Soluciones que cuidan tu entorno</small></span>
+      <span>{{ $cms['nav_brand'] ?? 'PachaLab' }}<small>{{ $cms['nav_slogan'] ?? 'Soluciones que cuidan tu entorno' }}</small></span>
     </a>
 
     <div class="navlinks" id="navLinks">
@@ -98,9 +98,9 @@
     </div>
 
     <div class="nav-actions">
-      <a class="btn btn-green nav-cta" href="{{ route('cotizar.ahora') }}">
+      <a class="btn btn-green nav-cta" href="{{ $cms['nav_cta_link'] ?? route('cotizar.ahora') }}">
         <i data-lucide="calculator"></i>
-        <span>Cotizar ahora</span>
+        <span>{{ $cms['nav_cta_text'] ?? 'Cotizar ahora' }}</span>
         <i data-lucide="arrow-right"></i>
       </a>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navDrawer">

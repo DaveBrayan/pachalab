@@ -1,0 +1,619 @@
+{
+    "homeHeroTitle": "Especialistas en Monitoreo Ambiental y Ocupacional",
+    "home_hero_title": "Especialistas en Monitoreo Ambiental y Ocupacional",
+    "contactWa": "76358189 (WhatsApp)",
+    "contact_wa": "76358189 (WhatsApp)",
+    "homeHeroEyebrow": "Bienvenidos a PachaLab",
+    "home_hero_eyebrow": "Bienvenidos a PachaLab",
+    "commitTitle": "Calidad, respaldo y resultados confiables",
+    "commit_title": "Calidad, respaldo y resultados confiables",
+    "commitPill": "Nuestro Compromiso",
+    "commit_pill": "Nuestro Compromiso",
+    "navBrandName": "PachaLab",
+    "nav_brand_name": "PachaLab",
+    "nav_brand": "PachaLab",
+    "navBrandSlogan": "Soluciones que cuidan tu entorno",
+    "nav_brand_slogan": "Soluciones que cuidan tu entorno",
+    "nav_slogan": "Soluciones que cuidan tu entorno",
+    "navLinksList": "Inicio (home), Quiénes Somos (#quienes-somos), Servicios (Dropdown), Cotización (Dropdown), Contactos (#contacto)",
+    "nav_links_list": "Inicio (home), Quiénes Somos (#quienes-somos), Servicios (Dropdown), Cotización (Dropdown), Contactos (#contacto)",
+    "navCtaText": "Cotizar ahora",
+    "nav_cta_text": "Cotizar ahora",
+    "navCtaLink": "\/cotizar-ahora",
+    "nav_cta_link": "\/cotizar-ahora",
+    "inputHomeHeroImg": "\/images\/hero.png",
+    "input_home_hero_img": "\/images\/hero.png",
+    "home_hero_img": "\/images\/hero.png",
+    "homeHeroImg": "\/images\/hero.png",
+    "homeHeroDesc": "La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo.",
+    "home_hero_desc": "La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo.",
+    "homeHeroBtn1Text": "Cotizar ahora",
+    "home_hero_btn1_text": "Cotizar ahora",
+    "homeHeroBtn1Link": "\/cotizar-ahora",
+    "home_hero_btn1_link": "\/cotizar-ahora",
+    "homeHeroBtn2Text": "Ver Servicios",
+    "home_hero_btn2_text": "Ver Servicios",
+    "homeHeroBtn2Link": "#servicios",
+    "home_hero_btn2_link": "#servicios",
+    "homeAboutKicker": "PACHABOL SRL",
+    "home_about_kicker": "PACHABOL SRL",
+    "homeAboutTitle": "¿Quiénes somos?",
+    "home_about_title": "¿Quiénes somos?",
+    "homeAboutDesc": "PachaLab es parte de la consultora internacional PACHABOL SRL que cuenta con los más altos estándares de calidad exigidos por nuestros clientes: instituciones, empresas, industrias y otros. Nuestra experiencia y compromiso nos posicionan como referentes en monitoreo ambiental, ocupacional y en el suministro de equipos especializados.",
+    "home_about_desc": "PachaLab es parte de la consultora internacional PACHABOL SRL que cuenta con los más altos estándares de calidad exigidos por nuestros clientes: instituciones, empresas, industrias y otros. Nuestra experiencia y compromiso nos posicionan como referentes en monitoreo ambiental, ocupacional y en el suministro de equipos especializados.",
+    "homeCert1": "Consultores Ambientales categoría C con registro en el Ministerio de Producción Sostenible, Medio Ambiente y Agua.",
+    "home_cert1": "Consultores Ambientales categoría C con registro en el Ministerio de Producción Sostenible, Medio Ambiente y Agua.",
+    "homeCert2": "Profesionales en Seguridad Ocupacional categoría A con registro en el Ministerio de Trabajo, Empleo y Previsión Social.",
+    "home_cert2": "Profesionales en Seguridad Ocupacional categoría A con registro en el Ministerio de Trabajo, Empleo y Previsión Social.",
+    "homeCert3": "Ingenieros químicos, ambientales e industriales con más de 10 años de experiencia y entrenamiento metrológico.",
+    "home_cert3": "Ingenieros químicos, ambientales e industriales con más de 10 años de experiencia y entrenamiento metrológico.",
+    "commitDesc": "Acompañamos a instituciones, empresas e industrias en todo el país con datos precisos y cumplimiento normativo garantizado.",
+    "commit_desc": "Acompañamos a instituciones, empresas e industrias en todo el país con datos precisos y cumplimiento normativo garantizado.",
+    "commitBtnText": "Cotiza en Línea",
+    "commit_btn_text": "Cotiza en Línea",
+    "commitBtnLink": "#cotizar",
+    "commit_btn_link": "#cotizar",
+    "commitStat1Val": "+100",
+    "commit_stat1_val": "+100",
+    "commitStat1Lbl": "Casos de Éxito Completados",
+    "commit_stat1_lbl": "Casos de Éxito Completados",
+    "commitStat2Val": "100%",
+    "commit_stat2_val": "100%",
+    "commitStat2Lbl": "Calidad del Servicio",
+    "commit_stat2_lbl": "Calidad del Servicio",
+    "commitStat3Val": "+50",
+    "commit_stat3_val": "+50",
+    "commitStat3Lbl": "Confianza de Nuestros Clientes",
+    "commit_stat3_lbl": "Confianza de Nuestros Clientes",
+    "commitBadgeText": "Cobertura Nacional · Bolivia",
+    "commit_badge_text": "Cobertura Nacional · Bolivia",
+    "processKicker": "Cotiza en Línea",
+    "process_kicker": "Cotiza en Línea",
+    "processTitle": "Solicita tu presupuesto rápido y sin compromiso",
+    "process_title": "Solicita tu presupuesto rápido y sin compromiso",
+    "processDesc": "Completa el formulario detallando los servicios que necesitas y recibe un presupuesto inmediato listo para descargar.",
+    "process_desc": "Completa el formulario detallando los servicios que necesitas y recibe un presupuesto inmediato listo para descargar.",
+    "step1Title": "Respuesta en menos de 24 horas",
+    "step1_title": "Respuesta en menos de 24 horas",
+    "step1Desc": "Atención ágil y oportuna para tus requerimientos técnicos.",
+    "step1_desc": "Atención ágil y oportuna para tus requerimientos técnicos.",
+    "step2Title": "Asesoría gratuita",
+    "step2_title": "Asesoría gratuita",
+    "step2Desc": "Orientación especializada para definir el alcance de tu proyecto.",
+    "step2_desc": "Orientación especializada para definir el alcance de tu proyecto.",
+    "step3Title": "Servicio en todo el país",
+    "step3_title": "Servicio en todo el país",
+    "step3Desc": "Cobertura nacional con equipos calibrados y personal certificado.",
+    "step3_desc": "Cobertura nacional con equipos calibrados y personal certificado.",
+    "quoteConfigTitle": "Elige el tipo de cotización",
+    "quote_config_title": "Elige el tipo de cotización",
+    "quoteConfigTabs": "Referencial (PDF Instantáneo) \/ Personalizada (A Medida)",
+    "quote_config_tabs": "Referencial (PDF Instantáneo) \/ Personalizada (A Medida)",
+    "feedbackTitle": "Sugerencias de mejora",
+    "feedback_title": "Sugerencias de mejora",
+    "feedbackBtnText": "Descargar formulario",
+    "feedback_btn_text": "Descargar formulario",
+    "feedbackDesc": "Queremos ofrecerte siempre el mejor servicio. Si deseas enviarnos una queja o sugerencia sobre la atención recibida, descarga el formulario y compártenos tus comentarios.",
+    "feedback_desc": "Queremos ofrecerte siempre el mejor servicio. Si deseas enviarnos una queja o sugerencia sobre la atención recibida, descarga el formulario y compártenos tus comentarios.",
+    "feedbackPdfUrl": "https:\/\/pachalab.pachabol.com\/wp-content\/uploads\/2025\/10\/Sugerencias-de-mejora.pdf",
+    "feedback_pdf_url": "https:\/\/pachalab.pachabol.com\/wp-content\/uploads\/2025\/10\/Sugerencias-de-mejora.pdf",
+    "contactPill": "Contáctanos",
+    "contact_pill": "Contáctanos",
+    "contactTitle": "¿Necesitas un servicio? Contáctanos ahora",
+    "contact_title": "¿Necesitas un servicio? Contáctanos ahora",
+    "contactDesc": "La seguridad de tus proyectos comienza con datos confiables. Solicita tu cotización personalizada para proyectos a medida, estudios complejos o licitaciones.",
+    "contact_desc": "La seguridad de tus proyectos comienza con datos confiables. Solicita tu cotización personalizada para proyectos a medida, estudios complejos o licitaciones.",
+    "contactWaLink": "https:\/\/wa.link\/3lf4u6",
+    "contact_wa_link": "https:\/\/wa.link\/3lf4u6",
+    "contactEmail": "laboratorio@pachabol.com",
+    "contact_email": "laboratorio@pachabol.com",
+    "contactFb": "Facebook · Pacha Consulting",
+    "contact_fb": "Facebook · Pacha Consulting",
+    "contactAddress": "Av. Raúl Salmón #26, Edif. Victoria, P. Baja Of. 7 · La Paz - Bolivia",
+    "contact_address": "Av. Raúl Salmón #26, Edif. Victoria, P. Baja Of. 7 · La Paz - Bolivia",
+    "footerBrandDesc": "La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo nacional e internacional.",
+    "footer_brand_desc": "La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo nacional e internacional.",
+    "footer_desc": "La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo nacional e internacional.",
+    "footerCol1": "Inicio, Quiénes Somos, Monitoreo Ambiental, Monitoreo Ocupacional, Alquiler de Equipos, Contactos",
+    "footer_col1": "Inicio, Quiénes Somos, Monitoreo Ambiental, Monitoreo Ocupacional, Alquiler de Equipos, Contactos",
+    "footerCol2": "Cotizar Ahora (General), Cotizador Ambiental (PDF), Cotizador Ocupacional (PDF), Cotizador Alquiler de Equipos (PDF)",
+    "footer_col2": "Cotizar Ahora (General), Cotizador Ambiental (PDF), Cotizador Ocupacional (PDF), Cotizador Alquiler de Equipos (PDF)",
+    "footerCopy": "© 2026 PachaLab — PACHABOL SRL. Todos los derechos reservados.",
+    "footer_copy": "© 2026 PachaLab — PACHABOL SRL. Todos los derechos reservados.",
+    "footerSubline": "Monitoreo Ambiental · Monitoreo Ocupacional · Alquiler de Equipos",
+    "footer_subline": "Monitoreo Ambiental · Monitoreo Ocupacional · Alquiler de Equipos",
+    "ambHeroTitle": "Monitoreo Ambiental Especializado",
+    "amb_hero_title": "Monitoreo Ambiental Especializado",
+    "servicios_ambiental_modulos": [
+        {
+            "num": ".01",
+            "titulo": "Calidad de Agua",
+            "subtitulo": "Evaluación integral de fuentes hídricas para industrias, minería, municipios y plantas de tratamiento.",
+            "items": [
+                "<strong>Aguas Residuales:<\/strong> Cumplimiento del RMCH y RASIM para descargas.",
+                "<strong>Agua Potable:<\/strong> Parámetros fisicoquímicos y microbiológicos según NB 512.",
+                "<strong>Suelos:<\/strong> Conductividad, alcalinidad, salinidad y metales pesados."
+            ]
+        },
+        {
+            "num": ".02",
+            "titulo": "Gases de Combustión",
+            "subtitulo": "Diagnóstico de emisiones directas para calderas, hornos, generadores y parques automotores.",
+            "items": [
+                "<strong>Fuentes Fijas:<\/strong> Medición de CO, NOx y SO2 según NB 62010.",
+                "<strong>Fuentes Móviles:<\/strong> Monitoreo de HC y CO bajo norma NB 62003.",
+                "<strong>Opacidad:<\/strong> Ensayos para vehículos diésel según NB 62004."
+            ]
+        },
+        {
+            "num": ".03",
+            "titulo": "Calidad de Aire",
+            "subtitulo": "Control de partículas e inmisión atmosférica en áreas perimetrales y comunidades de influencia.",
+            "items": [
+                "<strong>PM-10 y PM-2.5:<\/strong> Determinación gravimétrica en base a NB 62014.",
+                "<strong>Partículas Suspendidas Totales (PST):<\/strong> Muestreo de alto volumen.",
+                "<strong>Gases de Inmisión:<\/strong> CO, NO2 y SO2 puntual con celda electroquímica."
+            ]
+        },
+        {
+            "num": ".04",
+            "titulo": "Ruido Ambiental",
+            "subtitulo": "Evaluación de niveles sonoros continuos y fluctuantes para evitar contaminación acústica.",
+            "items": [
+                "<strong>Fuente Fija:<\/strong> Monitoreo diurno y nocturno bajo NB 62006.",
+                "<strong>Fuente Móvil:<\/strong> Mediciones según PT-O-02 Ley 1333.",
+                "<strong>Estudio de Impacto Sonoro:<\/strong> Mapas de dispersión acústica e informes."
+            ]
+        }
+    ],
+    "cotizador_ambiental_items": [
+        {
+            "nombre": "Calidad de Aire PTS",
+            "metodologia": "Determinación PST en base a la NB 62014",
+            "unidad": "Punto",
+            "precio": "100.00"
+        },
+        {
+            "nombre": "Calidad de Aire PM-10",
+            "metodologia": "NB 62014",
+            "unidad": "Punto",
+            "precio": "600.00"
+        },
+        {
+            "nombre": "Gases de combustión en fuente fija (CO,NOx y SO2)",
+            "metodologia": "NB 62010",
+            "unidad": "Punto",
+            "precio": "450.00"
+        },
+        {
+            "nombre": "Gases de inmisión CO (puntual)",
+            "metodologia": "Celda Electroquímica",
+            "unidad": "Punto",
+            "precio": "170.00"
+        },
+        {
+            "nombre": "Gases de inmisión NO2 (puntual)",
+            "metodologia": "Celda Electroquímica",
+            "unidad": "Punto",
+            "precio": "170.00"
+        },
+        {
+            "nombre": "Gases de inmisión SO2 (puntual)",
+            "metodologia": "Celda Electroquímica",
+            "unidad": "Punto",
+            "precio": "170.00"
+        },
+        {
+            "nombre": "Opacidad fuente móvil",
+            "metodologia": "NB 62004",
+            "unidad": "Punto",
+            "precio": "200.00"
+        },
+        {
+            "nombre": "Gases de combustión de fuente móvil (HC, CO)",
+            "metodologia": "NB 62003",
+            "unidad": "Punto",
+            "precio": "200.00"
+        },
+        {
+            "nombre": "Ruido Ambiental de fuente fija",
+            "metodologia": "NB 62006",
+            "unidad": "Punto",
+            "precio": "150.00"
+        },
+        {
+            "nombre": "Ruido de fuente móvil",
+            "metodologia": "PT-O-02 Ley 1333",
+            "unidad": "Punto",
+            "precio": "80.00"
+        },
+        {
+            "nombre": "Monitoreo de Agua Residual según el RMCH y RASIM",
+            "metodologia": "RMCH y RASIM",
+            "unidad": "Punto",
+            "precio": "1000.00"
+        },
+        {
+            "nombre": "Monitoreo de Agua Potable según la NB 512",
+            "metodologia": "NB 512",
+            "unidad": "Punto",
+            "precio": "500.00"
+        },
+        {
+            "nombre": "Monitoreo de Suelo (Conductividad, Alcalinidad, Salinidad)",
+            "metodologia": "Norma Técnica Suelos",
+            "unidad": "Punto",
+            "precio": "600.00"
+        }
+    ],
+    "ambHeroBadge": "Gestión Ambiental & Cumplimiento Normativo",
+    "amb_hero_badge": "Gestión Ambiental & Cumplimiento Normativo",
+    "inputAmbHeroImg": "\/images\/monitoreo-ambiental.jpg",
+    "input_amb_hero_img": "\/images\/monitoreo-ambiental.jpg",
+    "ambHeroLead": "Realizamos mediciones precisas de calidad de aire, agua, ruido y gases de combustión, asegurando el estricto cumplimiento de normativas ambientales (Ley 1333, RMCH, RASIM) y estándares internacionales.",
+    "amb_hero_lead": "Realizamos mediciones precisas de calidad de aire, agua, ruido y gases de combustión, asegurando el estricto cumplimiento de normativas ambientales (Ley 1333, RMCH, RASIM) y estándares internacionales.",
+    "ambHeroBtnCotiz": "Cotización Referencial Online (PDF)",
+    "amb_hero_btn_cotiz": "Cotización Referencial Online (PDF)",
+    "ambHeroBtnLink": "\/cotiza-monitoreo-ambiental",
+    "amb_hero_btn_link": "\/cotiza-monitoreo-ambiental",
+    "ocpHeroBadge": "Seguridad y Salud en el Trabajo (SST) · MTEPS",
+    "ocp_hero_badge": "Seguridad y Salud en el Trabajo (SST) · MTEPS",
+    "inputOcpHeroImg": "\/images\/monitoreo-ocupacional.jpg",
+    "input_ocp_hero_img": "\/images\/monitoreo-ocupacional.jpg",
+    "ocpHeroTitle": "Monitoreo Ocupacional & Ergonomía",
+    "ocp_hero_title": "Monitoreo Ocupacional & Ergonomía",
+    "ocpHeroLead": "Evaluación técnica de agentes físicos, químicos, ergonómicos y psicosociales en puestos de trabajo para proteger la salud de tus colaboradores y cumplir la Ley General de Higiene y Seguridad Ocupacional y normas NTS del Ministerio de Trabajo.",
+    "ocp_hero_lead": "Evaluación técnica de agentes físicos, químicos, ergonómicos y psicosociales en puestos de trabajo para proteger la salud de tus colaboradores y cumplir la Ley General de Higiene y Seguridad Ocupacional y normas NTS del Ministerio de Trabajo.",
+    "ocpHeroBtnCotiz": "Cotización Referencial Online (PDF)",
+    "ocp_hero_btn_cotiz": "Cotización Referencial Online (PDF)",
+    "ocpHeroBtnLink": "\/cotiza-monitoreo-ocupacional",
+    "ocp_hero_btn_link": "\/cotiza-monitoreo-ocupacional",
+    "servicios_ocupacional_modulos": [
+        {
+            "num": ".01",
+            "titulo": "Agentes Físicos",
+            "subtitulo": "Control de factores ambientales que pueden generar fatiga, hipoacusia o accidentes laborales.",
+            "items": [
+                "<strong>Iluminación:<\/strong> Luxometría en puestos y áreas bajo norma NTS 001\/17.",
+                "<strong>Ruido Ocupacional:<\/strong> Sonometría y Dosimetría según NTS 002\/2017.",
+                "<strong>Ventilación:<\/strong> Caudales y renovación de aire según NB 51001-1.",
+                "<strong>Estrés Térmico:<\/strong> Confort por calor (ISO 7243) y frío (NTP 462).",
+                "<strong>Vibración:<\/strong> Mano-brazo y cuerpo entero (ISO 5349 e ISO 2631)."
+            ]
+        },
+        {
+            "num": ".02",
+            "titulo": "Riesgos Disergonómicos",
+            "subtitulo": "Prevención de trastornos musculoesqueléticos en puestos de planta, almacén y oficinas administrativas.",
+            "items": [
+                "<strong>Manipulación de Cargas:<\/strong> Ecuación NIOSH y tablas especializadas.",
+                "<strong>Posturas Inadecuadas:<\/strong> Métodos ergonómicos REBA, RULA y OWAS.",
+                "<strong>Norma NTS 015\/23:<\/strong> Estudio ergonómico integral por puesto y trabajador.",
+                "<strong>Trabajo en Oficina:<\/strong> Evaluación de pantallas (PVD), sillas y periféricos."
+            ]
+        },
+        {
+            "num": ".03",
+            "titulo": "Agentes Químicos",
+            "subtitulo": "Monitoreo de aerosoles, gases y vapores que puedan inhalar los trabajadores en áreas operativas.",
+            "items": [
+                "<strong>Polvo Ocupacional:<\/strong> Fracción respirable e inhalable (PST, PM10).",
+                "<strong>Compuestos Orgánicos Volátiles (COVs):<\/strong> Vapores y solventes.",
+                "<strong>Formaldehído (HCHO):<\/strong> Detección con equipos electroquímicos.",
+                "<strong>Calidad de Aire Interior:<\/strong> Concentración de CO2 y monóxido de carbono (CO).",
+                "<strong>Gases Peligrosos:<\/strong> Explosividad (LEL), O2, CO y H2S."
+            ]
+        },
+        {
+            "num": ".04",
+            "titulo": "Factores Psicosociales",
+            "subtitulo": "Diagnóstico de condiciones de la organización del trabajo que influyen en el bienestar mental y productividad.",
+            "items": [
+                "<strong>Carga Mental y Estrés:<\/strong> Cuestionarios estandarizados validados.",
+                "<strong>Factores de Riesgo:<\/strong> Demandas del trabajo, control y liderazgo.",
+                "<strong>Planes de Intervención:<\/strong> Estrategias para comités mixtos de higiene y seguridad."
+            ]
+        },
+        {
+            "num": ".05",
+            "titulo": "Carga de Fuego & SIPPCI",
+            "subtitulo": "Ingeniería contra incendios para proteger infraestructura y cumplir requerimientos de Bomberos y el MTEPS.",
+            "items": [
+                "<strong>Estudio de Carga de Fuego:<\/strong> Según normas NB 58002 y NB 58005.",
+                "<strong>Dotación de Extintores:<\/strong> Cálculo de potencial extintor y distribución.",
+                "<strong>Certificación SIPPCI:<\/strong> Elaboración de carpetas y trámites ante Bomberos.",
+                "<strong>Planes de Emergencia:<\/strong> Rutas de evacuación y brigadas de rescate."
+            ]
+        }
+    ],
+    "cotizador_ocupacional_items": [
+        {
+            "nombre": "Monitoreo de Iluminación",
+            "metodologia": "NTS 001\/17",
+            "unidad": "Punto",
+            "precio": "100.00",
+            "label": "Monitoreo de Iluminación (NTS 001\/17)"
+        },
+        {
+            "nombre": "Ruido - Sonometría",
+            "metodologia": "NTS 002\/2017",
+            "unidad": "Punto",
+            "precio": "100.00",
+            "label": "Ruido - Sonometría ambiental en puesto (NTS 002\/17)"
+        },
+        {
+            "nombre": "Ruido - Dosimetría",
+            "metodologia": "NTS 002\/2017",
+            "unidad": "Punto",
+            "precio": "200.00",
+            "label": "Ruido - Dosimetría personal de jornada (NTS 002\/17)"
+        },
+        {
+            "nombre": "Ruido - Determinación del NPS en Bandas de Octava",
+            "metodologia": "NTS 002\/2017",
+            "unidad": "Punto",
+            "precio": "250.00",
+            "label": "Ruido - Bandas de Octava para selección de EPP auditivo"
+        },
+        {
+            "nombre": "Monitoreo de Ventilación",
+            "metodologia": "NB 51001-1",
+            "unidad": "Punto",
+            "precio": "200.00",
+            "label": "Monitoreo de Ventilación y renovación de aire (NB 51001-1)"
+        },
+        {
+            "nombre": "Monitoreo de Estrés Térmico por Calor",
+            "metodologia": "ISO 7243",
+            "unidad": "Punto",
+            "precio": "250.00",
+            "label": "Estrés Térmico por Calor - Índice TGBH (ISO 7243)"
+        },
+        {
+            "nombre": "Monitoreo de Estrés Térmico por Frío",
+            "metodologia": "NTP 462",
+            "unidad": "Punto",
+            "precio": "250.00",
+            "label": "Estrés Térmico por Frío y sensación térmica (NTP 462)"
+        },
+        {
+            "nombre": "Monitoreo de Compuestos Orgánicos Volátiles (COVs)",
+            "metodologia": "Celda electroquímica",
+            "unidad": "Punto",
+            "precio": "200.00",
+            "label": "Compuestos Orgánicos Volátiles (COVs)"
+        },
+        {
+            "nombre": "Monitoreo de Partículas Suspendidas (PM10, PM2.5 y PST)",
+            "metodologia": "MTA\/MA - 014\/A11 (modificado)",
+            "unidad": "Punto",
+            "precio": "600.00",
+            "label": "Partículas Suspendidas e Inhalables (PM10, PM2.5, PST)"
+        },
+        {
+            "nombre": "Monitoreo de Gases de Inmisión (LEL, CO, O2, H2S)",
+            "metodologia": "Celda electroquímica",
+            "unidad": "Punto",
+            "precio": "200.00",
+            "label": "Gases en Espacios Confinados (LEL, CO, O2, H2S)"
+        },
+        {
+            "nombre": "Monitoreo de Calidad del Aire (CO2, CO)",
+            "metodologia": "Celda electroquímica",
+            "unidad": "Punto",
+            "precio": "120.00",
+            "label": "Calidad del Aire Interior (CO2 y CO)"
+        },
+        {
+            "nombre": "Monitoreo de HCHO",
+            "metodologia": "Celda electroquímica",
+            "unidad": "Punto",
+            "precio": "100.00",
+            "label": "Monitoreo de Formaldehído (HCHO)"
+        },
+        {
+            "nombre": "Monitoreo de Vibración Cuerpo Entero y Mano-Brazo",
+            "metodologia": "ISO 2631-1 e ISO 5349-1",
+            "unidad": "Punto",
+            "precio": "300.00",
+            "label": "Vibración Cuerpo Entero y Mano-Brazo"
+        },
+        {
+            "nombre": "Monitoreo de Agua Potable",
+            "metodologia": "NB 512",
+            "unidad": "Punto",
+            "precio": "500.00",
+            "label": "Calidad de Agua de Consumo según NB 512"
+        },
+        {
+            "nombre": "Estudio de Ergonomía y Riesgos Disergonómicos",
+            "metodologia": "NTS 015\/23",
+            "unidad": "Trabajador",
+            "precio": "100.00",
+            "label": "Estudio Ergonómico por Trabajador (NTS 015\/23)"
+        },
+        {
+            "nombre": "Estudio de Carga de Fuego",
+            "metodologia": "NB 58002, NB 58005 y SIPPCI",
+            "unidad": "m2",
+            "precio": "3.00",
+            "label": "Estudio de Carga de Fuego y Extintores (por m²)"
+        }
+    ],
+    "eqHeroBadge": "Equipos con Calibración Certificada IBMETRO",
+    "eq_hero_badge": "Equipos con Calibración Certificada IBMETRO",
+    "inputEqHeroImg": "\/images\/venta-equipos.jpg",
+    "input_eq_hero_img": "\/images\/venta-equipos.jpg",
+    "eqHeroTitle": "Alquiler de Equipos Certificados",
+    "eq_hero_title": "Alquiler de Equipos Certificados",
+    "eqHeroLead": "Amplía tus capacidades técnicas. Ponemos a tu disposición instrumentos de medición ambiental y ocupacional de marcas líderes a nivel mundial (Trotec, Extech, Temtop, PCE, Laserliner, Bosean), calibrados y listos para campo.",
+    "eq_hero_lead": "Amplía tus capacidades técnicas. Ponemos a tu disposición instrumentos de medición ambiental y ocupacional de marcas líderes a nivel mundial (Trotec, Extech, Temtop, PCE, Laserliner, Bosean), calibrados y listos para campo.",
+    "eqHeroBtnCotiz": "Cotizador Online de Alquiler (PDF)",
+    "eq_hero_btn_cotiz": "Cotizador Online de Alquiler (PDF)",
+    "eqHeroBtnLink": "\/cotiza-venta-y-alquiler-de-equipos",
+    "eq_hero_btn_link": "\/cotiza-venta-y-alquiler-de-equipos",
+    "servicios_equipos_modulos": [
+        {
+            "num": ".01",
+            "titulo": "Calibración Vigente",
+            "subtitulo": "Entregamos cada instrumento con su respectivo certificado de calibración actualizado y trazable.",
+            "items": [
+                "Certificados reconocidos por autoridades ambientales y laborales.",
+                "Mantenimiento preventivo e inspección antes de cada entrega.",
+                "Baterías, accesorios y cables completos en maletín de transporte rígido."
+            ]
+        },
+        {
+            "num": ".02",
+            "titulo": "Inducción Técnica",
+            "subtitulo": "Te explicamos cómo configurar, operar y registrar datos correctamente con cada dispositivo.",
+            "items": [
+                "Capacitación presencial o virtual al momento de retirar el equipo.",
+                "Manuales de usuario en español y guía rápida de medición.",
+                "Soporte telefónico durante la realización de tus ensayos."
+            ]
+        },
+        {
+            "num": ".03",
+            "titulo": "Modalidades Flexibles",
+            "subtitulo": "Opciones adaptadas a la duración y presupuesto de consultorías, auditorías o proyectos anuales.",
+            "items": [
+                "Alquiler por día, semana completa o mes con tarifas preferenciales.",
+                "Tarifas preferenciales para alquileres prolongados o proyectos de larga duración.",
+                "Despachos y envíos seguros a todos los departamentos de Bolivia."
+            ]
+        }
+    ],
+    "cotizador_equipos_items": [
+        {
+            "nombre": "Anemómetro Extech",
+            "caracteristicas": "Marca: EXTECH · Modelo: AN100",
+            "codigo": "07-ANE-EXT",
+            "precio": "300.00",
+            "label": "Anemómetro Digital · Extech AN100"
+        },
+        {
+            "nombre": "Anemómetro Laserliner",
+            "caracteristicas": "Marca: LASERLINER · Modelo: AirflowTest-Master",
+            "codigo": "06-ANE-LAS",
+            "precio": "300.00",
+            "label": "Anemómetro · Laserliner AirflowTest"
+        },
+        {
+            "nombre": "Luxómetro PCE",
+            "caracteristicas": "Marca: PCE · Modelo: PCE-174",
+            "codigo": "01-LUX-PCE",
+            "precio": "300.00",
+            "label": "Luxómetro con registro · PCE-174"
+        },
+        {
+            "nombre": "Luxómetro Laserliner",
+            "caracteristicas": "Marca: LASERLINER · Modelo: Lux Test Master",
+            "codigo": "02-LUX-LAS",
+            "precio": "300.00",
+            "label": "Luxómetro · Laserliner Lux Test Master"
+        },
+        {
+            "nombre": "Sonómetro Trotec",
+            "caracteristicas": "Marca: TROTEC · Modelo: SL400",
+            "codigo": "04-SON-TRO",
+            "precio": "300.00",
+            "label": "Sonómetro Integrador · Trotec SL400"
+        },
+        {
+            "nombre": "Sonómetro Laserliner",
+            "caracteristicas": "Marca: LASERLINER · Modelo: SoundTestMaster",
+            "codigo": "03-SON-LAS",
+            "precio": "300.00",
+            "label": "Sonómetro · Laserliner SoundTestMaster"
+        },
+        {
+            "nombre": "Contador de Partículas",
+            "caracteristicas": "Marca: TEMTOP · Modelo: LKC-1000 2ND",
+            "codigo": "09-PAR-TEM",
+            "precio": "300.00",
+            "label": "Contador de Partículas · Temtop LKC-1000"
+        },
+        {
+            "nombre": "Detector Multigases",
+            "caracteristicas": "Marca: BOSEAN · Modelo: BH–45",
+            "codigo": "11-GAS-BOS",
+            "precio": "400.00",
+            "label": "Detector Multigases (LEL, O2, H2S, CO) · Bosean"
+        },
+        {
+            "nombre": "Medidor Calidad de Aire",
+            "caracteristicas": "Marca: VSON · Modelo: WP6930S",
+            "codigo": "10-AIR-VSO",
+            "precio": "250.00",
+            "label": "Monitor Calidad de Aire Multifuncional · VSON"
+        },
+        {
+            "nombre": "Opacímetro",
+            "caracteristicas": "Marca: BRAIN BEE · Modelo: OPA-300",
+            "codigo": "13-DIS-ING",
+            "precio": "500.00",
+            "label": "Opacímetro Diésel · Brain Bee OPA-300"
+        },
+        {
+            "nombre": "Termohigrómetro",
+            "caracteristicas": "Marca: TROTEC · Modelo: TC100",
+            "codigo": "08-TER-TRO",
+            "precio": "400.00",
+            "label": "Termohigrómetro · Trotec TC100"
+        },
+        {
+            "nombre": "Dosímetro Ocupacional",
+            "caracteristicas": "Marca: CASTLE · Modelo: GA113",
+            "codigo": "05-DOS-CAS",
+            "precio": "350.00",
+            "label": "Dosímetro Personal · Castle GA113"
+        },
+        {
+            "nombre": "Medidor de CO2",
+            "caracteristicas": "Marca: CO2 Meter · Modelo: CO2+CO METER",
+            "codigo": "12-CO2-CO2",
+            "precio": "200.00",
+            "label": "Medidor de CO2 y CO · CO2 Meter"
+        },
+        {
+            "nombre": "Distanciómetro 60MT",
+            "caracteristicas": "Marca: INGCO · Modelo: 60MT",
+            "codigo": "14-DIS-ING",
+            "precio": "50.00",
+            "label": "Distanciómetro Láser 60M · Ingco"
+        },
+        {
+            "nombre": "Distanciómetro LS-P",
+            "caracteristicas": "Marca: Duka · Modelo: LS - P",
+            "codigo": "15-DIS-DUK",
+            "precio": "50.00",
+            "label": "Distanciómetro Compacto · Duka LS-P"
+        },
+        {
+            "nombre": "Proyectora Epson",
+            "caracteristicas": "Marca: EPSON",
+            "codigo": "16-PRO-EPS",
+            "precio": "120.00",
+            "label": "Proyectora Multimedia · Epson"
+        },
+        {
+            "nombre": "Trípode para Instrumentos",
+            "caracteristicas": "Marca: TOLSEN · Modelo: INSTRUMENT TRIPOD",
+            "codigo": "17-TRI-TOL",
+            "precio": "60.00",
+            "label": "Trípode Extensible para Instrumentos · Tolsen"
+        }
+    ],
+    "mail_from_address": "notificaciones@pachabol.com",
+    "mail_from_name": "PachaLab - Cotizaciones Oficiales",
+    "mail_notify_recipient": "laboratorio@pachabol.com",
+    "mail_host": "mail.pachabol.com",
+    "mail_port": "465",
+    "mail_encryption": "ssl",
+    "mail_username": "notificaciones@pachabol.com",
+    "mail_attach_pdf": "1",
+    "mail_notify_client": "1",
+    "mail_notify_team": "1",
+    "mail_password": "9210292Dc#BM"
+}

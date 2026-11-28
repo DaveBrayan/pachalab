@@ -125,23 +125,37 @@
     <td>
       <select class="item-select equipo" required>
         <option value="">Seleccionar equipo...</option>
-        <option value="Anemómetro Extech" data-caracteristicas="Marca: EXTECH · Modelo: AN100" data-codigo="07-ANE-EXT" data-precio="300.00">Anemómetro Digital · Extech AN100</option>
-        <option value="Anemómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: AirflowTest-Master" data-codigo="06-ANE-LAS" data-precio="300.00">Anemómetro · Laserliner AirflowTest</option>
-        <option value="Luxómetro PCE" data-caracteristicas="Marca: PCE · Modelo: PCE-174" data-codigo="01-LUX-PCE" data-precio="300.00">Luxómetro con registro · PCE-174</option>
-        <option value="Luxómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: Lux Test Master" data-codigo="02-LUX-LAS" data-precio="300.00">Luxómetro · Laserliner Lux Test Master</option>
-        <option value="Sonómetro Trotec" data-caracteristicas="Marca: TROTEC · Modelo: SL400" data-codigo="04-SON-TRO" data-precio="300.00">Sonómetro Integrador · Trotec SL400</option>
-        <option value="Sonómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: SoundTestMaster" data-codigo="03-SON-LAS" data-precio="300.00">Sonómetro · Laserliner SoundTestMaster</option>
-        <option value="Contador de Partículas" data-caracteristicas="Marca: TEMTOP · Modelo: LKC-1000 2ND" data-codigo="09-PAR-TEM" data-precio="300.00">Contador de Partículas · Temtop LKC-1000</option>
-        <option value="Detector Multigases" data-caracteristicas="Marca: BOSEAN · Modelo: BH–45" data-codigo="11-GAS-BOS" data-precio="400.00">Detector Multigases (LEL, O2, H2S, CO) · Bosean</option>
-        <option value="Medidor Calidad de Aire" data-caracteristicas="Marca: VSON · Modelo: WP6930S" data-codigo="10-AIR-VSO" data-precio="250.00">Monitor Calidad de Aire Multifuncional · VSON</option>
-        <option value="Opacímetro" data-caracteristicas="Marca: BRAIN BEE · Modelo: OPA-300" data-codigo="13-DIS-ING" data-precio="500.00">Opacímetro Diésel · Brain Bee OPA-300</option>
-        <option value="Termohigrómetro" data-caracteristicas="Marca: TROTEC · Modelo: TC100" data-codigo="08-TER-TRO" data-precio="400.00">Termohigrómetro · Trotec TC100</option>
-        <option value="Dosímetro Ocupacional" data-caracteristicas="Marca: CASTLE · Modelo: GA113" data-codigo="05-DOS-CAS" data-precio="350.00">Dosímetro Personal · Castle GA113</option>
-        <option value="Medidor de CO2" data-caracteristicas="Marca: CO2 Meter · Modelo: CO2+CO METER" data-codigo="12-CO2-CO2" data-precio="200.00">Medidor de CO2 y CO · CO2 Meter</option>
-        <option value="Distanciómetro 60MT" data-caracteristicas="Marca: INGCO · Modelo: 60MT" data-codigo="14-DIS-ING" data-precio="50.00">Distanciómetro Láser 60M · Ingco</option>
-        <option value="Distanciómetro LS-P" data-caracteristicas="Marca: Duka · Modelo: LS - P" data-codigo="15-DIS-DUK" data-precio="50.00">Distanciómetro Compacto · Duka LS-P</option>
-        <option value="Proyectora Epson" data-caracteristicas="Marca: EPSON" data-codigo="16-PRO-EPS" data-precio="120.00">Proyectora Multimedia · Epson</option>
-        <option value="Trípode para Instrumentos" data-caracteristicas="Marca: TOLSEN · Modelo: INSTRUMENT TRIPOD" data-codigo="17-TRI-TOL" data-precio="60.00">Trípode Extensible para Instrumentos · Tolsen</option>
+        @php
+          $cotizEqItems = $cms['cotizador_equipos_items'] ?? null;
+          if (is_string($cotizEqItems)) {
+            $cotizEqItems = json_decode($cotizEqItems, true);
+          }
+        @endphp
+        @if(!empty($cotizEqItems) && is_array($cotizEqItems))
+          @foreach($cotizEqItems as $item)
+            <option value="{{ $item['nombre'] ?? '' }}" data-caracteristicas="{{ $item['caracteristicas'] ?? '' }}" data-codigo="{{ $item['codigo'] ?? '' }}" data-precio="{{ $item['precio'] ?? '0.00' }}">
+              {{ !empty($item['label']) ? $item['label'] : ($item['nombre'] ?? '') }}
+            </option>
+          @endforeach
+        @else
+          <option value="Anemómetro Extech" data-caracteristicas="Marca: EXTECH · Modelo: AN100" data-codigo="07-ANE-EXT" data-precio="300.00">Anemómetro Digital · Extech AN100</option>
+          <option value="Anemómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: AirflowTest-Master" data-codigo="06-ANE-LAS" data-precio="300.00">Anemómetro · Laserliner AirflowTest</option>
+          <option value="Luxómetro PCE" data-caracteristicas="Marca: PCE · Modelo: PCE-174" data-codigo="01-LUX-PCE" data-precio="300.00">Luxómetro con registro · PCE-174</option>
+          <option value="Luxómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: Lux Test Master" data-codigo="02-LUX-LAS" data-precio="300.00">Luxómetro · Laserliner Lux Test Master</option>
+          <option value="Sonómetro Trotec" data-caracteristicas="Marca: TROTEC · Modelo: SL400" data-codigo="04-SON-TRO" data-precio="300.00">Sonómetro Integrador · Trotec SL400</option>
+          <option value="Sonómetro Laserliner" data-caracteristicas="Marca: LASERLINER · Modelo: SoundTestMaster" data-codigo="03-SON-LAS" data-precio="300.00">Sonómetro · Laserliner SoundTestMaster</option>
+          <option value="Contador de Partículas" data-caracteristicas="Marca: TEMTOP · Modelo: LKC-1000 2ND" data-codigo="09-PAR-TEM" data-precio="300.00">Contador de Partículas · Temtop LKC-1000</option>
+          <option value="Detector Multigases" data-caracteristicas="Marca: BOSEAN · Modelo: BH–45" data-codigo="11-GAS-BOS" data-precio="400.00">Detector Multigases (LEL, O2, H2S, CO) · Bosean</option>
+          <option value="Medidor Calidad de Aire" data-caracteristicas="Marca: VSON · Modelo: WP6930S" data-codigo="10-AIR-VSO" data-precio="250.00">Monitor Calidad de Aire Multifuncional · VSON</option>
+          <option value="Opacímetro" data-caracteristicas="Marca: BRAIN BEE · Modelo: OPA-300" data-codigo="13-DIS-ING" data-precio="500.00">Opacímetro Diésel · Brain Bee OPA-300</option>
+          <option value="Termohigrómetro" data-caracteristicas="Marca: TROTEC · Modelo: TC100" data-codigo="08-TER-TRO" data-precio="400.00">Termohigrómetro · Trotec TC100</option>
+          <option value="Dosímetro Ocupacional" data-caracteristicas="Marca: CASTLE · Modelo: GA113" data-codigo="05-DOS-CAS" data-precio="350.00">Dosímetro Personal · Castle GA113</option>
+          <option value="Medidor de CO2" data-caracteristicas="Marca: CO2 Meter · Modelo: CO2+CO METER" data-codigo="12-CO2-CO2" data-precio="200.00">Medidor de CO2 y CO · CO2 Meter</option>
+          <option value="Distanciómetro 60MT" data-caracteristicas="Marca: INGCO · Modelo: 60MT" data-codigo="14-DIS-ING" data-precio="50.00">Distanciómetro Láser 60M · Ingco</option>
+          <option value="Distanciómetro LS-P" data-caracteristicas="Marca: Duka · Modelo: LS - P" data-codigo="15-DIS-DUK" data-precio="50.00">Distanciómetro Compacto · Duka LS-P</option>
+          <option value="Proyectora Epson" data-caracteristicas="Marca: EPSON" data-codigo="16-PRO-EPS" data-precio="120.00">Proyectora Multimedia · Epson</option>
+          <option value="Trípode para Instrumentos" data-caracteristicas="Marca: TOLSEN · Modelo: INSTRUMENT TRIPOD" data-codigo="17-TRI-TOL" data-precio="60.00">Trípode Extensible para Instrumentos · Tolsen</option>
+        @endif
       </select>
     </td>
     <td class="col-caracteristicas">-</td>

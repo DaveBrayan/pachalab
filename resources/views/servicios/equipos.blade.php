@@ -12,16 +12,15 @@
       <span class="current">Alquiler de Equipos</span>
     </nav>
     <div class="hero-pill-badge">
-      <i data-lucide="gauge"></i> Equipos con Calibración Certificada
+      <i data-lucide="gauge"></i> {{ $cms['eqHeroBadge'] ?? 'Equipos con Calibración Certificada' }}
     </div>
-    <h1>Alquiler de <span>Equipos</span></h1>
+    <h1>{!! $cms['eqHeroTitle'] ?? 'Alquiler de <span>Equipos</span>' !!}</h1>
     <p class="lead">
-      Amplía tus capacidades técnicas. Ponemos a tu disposición instrumentos de medición ambiental y ocupacional
-      de marcas líderes a nivel mundial (Trotec, Extech, Temtop, PCE, Laserliner, Bosean), calibrados y listos para campo.
+      {{ $cms['eqHeroLead'] ?? 'Amplía tus capacidades técnicas. Ponemos a tu disposición instrumentos de medición ambiental y ocupacional de marcas líderes a nivel mundial (Trotec, Extech, Temtop, PCE, Laserliner, Bosean), calibrados y listos para campo.' }}
     </p>
     <div class="subpage-hero-actions">
-      <a class="btn btn-green" href="{{ route('cotizar.equipos') }}">
-        <i data-lucide="wrench"></i> Cotizador Online de Alquiler (PDF) <i data-lucide="arrow-right"></i>
+      <a class="btn btn-green" href="{{ !empty($cms['eqHeroBtnLink']) ? $cms['eqHeroBtnLink'] : route('cotizar.equipos') }}">
+        <i data-lucide="wrench"></i> {{ $cms['eqHeroBtnCotiz'] ?? 'Cotizador Online de Alquiler (PDF)' }} <i data-lucide="arrow-right"></i>
       </a>
       <a class="btn btn-outline" href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
         <i data-lucide="message-square"></i> Consultar Disponibilidad Inmediata
@@ -39,47 +38,77 @@
   </p>
 
   <div class="details-grid">
-    <!-- 01 CALIBRACIÓN -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.01</div>
-      <h3>Calibración Vigente</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Entregamos cada instrumento con su respectivo certificado de calibración actualizado y trazable.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span>Certificados reconocidos por autoridades ambientales y laborales.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Mantenimiento preventivo e inspección antes de cada entrega.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Baterías, accesorios y cables completos en maletín de transporte rígido.</span></li>
-      </ul>
-    </article>
+    @php
+      $eqModulos = $cms['servicios_equipos_modulos'] ?? null;
+      if (is_string($eqModulos)) {
+        $eqModulos = json_decode($eqModulos, true);
+      }
+    @endphp
 
-    <!-- 02 CAPACITACIÓN -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.02</div>
-      <h3>Inducción Técnica</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Te explicamos cómo configurar, operar y registrar datos correctamente con cada dispositivo.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span>Capacitación presencial o virtual al momento de retirar el equipo.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Manuales de usuario en español y guía rápida de medición.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Soporte telefónico durante la realización de tus ensayos.</span></li>
-      </ul>
-    </article>
+    @if(!empty($eqModulos) && is_array($eqModulos))
+      @foreach($eqModulos as $mod)
+        <article class="detail-card spotlight-card tilt-card anim-card">
+          <div class="detail-card-num">{{ $mod['num'] ?? ('.' . sprintf('%02d', $loop->iteration)) }}</div>
+          <h3>{{ $mod['titulo'] ?? '' }}</h3>
+          @if(!empty($mod['subtitulo']))
+            <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+              {{ $mod['subtitulo'] }}
+            </p>
+          @endif
+          @if(!empty($mod['items']) && is_array($mod['items']))
+            <ul class="detail-card-list">
+              @foreach($mod['items'] as $item)
+                @if(trim($item) !== '')
+                  <li><i data-lucide="check-circle-2"></i> <span>{!! $item !!}</span></li>
+                @endif
+              @endforeach
+            </ul>
+          @endif
+        </article>
+      @endforeach
+    @else
+      <!-- 01 CALIBRACIÓN -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.01</div>
+        <h3>Calibración Vigente</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Entregamos cada instrumento con su respectivo certificado de calibración actualizado y trazable.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span>Certificados reconocidos por autoridades ambientales y laborales.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Mantenimiento preventivo e inspección antes de cada entrega.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Baterías, accesorios y cables completos en maletín de transporte rígido.</span></li>
+        </ul>
+      </article>
 
-    <!-- 03 MODALIDADES -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.03</div>
-      <h3>Modalidades Flexibles</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Opciones adaptadas a la duración y presupuesto de consultorías, auditorías o proyectos anuales.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span>Alquiler por día, semana completa o mes con tarifas preferenciales.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Tarifas preferenciales para alquileres prolongados o proyectos de larga duración.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span>Despachos y envíos seguros a todos los departamentos de Bolivia.</span></li>
-      </ul>
-    </article>
+      <!-- 02 CAPACITACIÓN -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.02</div>
+        <h3>Inducción Técnica</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Te explicamos cómo configurar, operar y registrar datos correctamente con cada dispositivo.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span>Capacitación presencial o virtual al momento de retirar el equipo.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Manuales de usuario en español y guía rápida de medición.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Soporte telefónico durante la realización de tus ensayos.</span></li>
+        </ul>
+      </article>
+
+      <!-- 03 MODALIDADES -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.03</div>
+        <h3>Modalidades Flexibles</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Opciones adaptadas a la duración y presupuesto de consultorías, auditorías o proyectos anuales.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span>Alquiler por día, semana completa o mes con tarifas preferenciales.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Tarifas preferenciales para alquileres prolongados o proyectos de larga duración.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span>Despachos y envíos seguros a todos los departamentos de Bolivia.</span></li>
+        </ul>
+      </article>
+    @endif
   </div>
 </section>
 

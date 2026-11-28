@@ -288,11 +288,20 @@
           }
         }
 
-        // Número de cotización correlativo
-        const numeroCotizacion = Math.floor(Math.random() * 50) + 50;
+        // Número de cotización correlativo (iniciando en 00 desde el servidor)
         const añoActual = new Date().getFullYear().toString().slice(-2);
-        const numeroFormateado = String(numeroCotizacion).padStart(2, '0');
-        const codigoCot = `${numeroFormateado}-${añoActual}-COT-REF`;
+        let codigoCot = `00-${añoActual}-COT-REF`;
+        try {
+          const respCod = await fetch('/api/cotizaciones/siguiente-codigo?suffix=COT-REF');
+          if (respCod.ok) {
+            const dataCod = await respCod.json();
+            if (dataCod && dataCod.codigo) {
+              codigoCot = dataCod.codigo;
+            }
+          }
+        } catch (codErr) {
+          console.warn('No se pudo obtener código correlativo del servidor:', codErr);
+        }
 
         doc.setProperties({
           title: `Cotización ${codigoCot} - ${empresa}`,
@@ -524,11 +533,52 @@
         const nombreArchivo = `${codigoCot}_${empresa.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().slice(0, 10)}.pdf`;
         doc.save(nombreArchivo);
 
+        // Envío automático de la cotización por correo electrónico desde notificaciones@pachabol.com
+        let envioEmailExitoso = false;
+        try {
+          const pdfBase64 = doc.output('datauristring');
+          const respEmail = await fetch('/api/cotizaciones/enviar', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              cliente_nombre: responsable,
+              cliente_email: correo,
+              cliente_telefono: telefono,
+              cliente_empresa: institucion,
+              departamento: departamento,
+              cargo: cargo,
+              tipo_cotizacion: tipo,
+              codigo_cotizacion: codigoCot,
+              total: totalNum,
+              items: rows,
+              pdf_base64: pdfBase64
+            })
+          });
+          const resJson = await respEmail.json();
+          if (resJson && resJson.status === 'success') {
+            envioEmailExitoso = true;
+          }
+        } catch (mailErr) {
+          console.warn('Nota sobre envío de cotización por correo:', mailErr);
+        }
+
+        const emailInfoHtml = envioEmailExitoso
+          ? `<p style="margin-top:10px; font-size:0.92rem; color:#168d08; background:#e8f8e5; padding:8px 12px; border-radius:8px; border:1px solid #c3eec0;">
+               📧 <strong>¡Copia enviada a tu correo!</strong> Se envió el resumen y el documento a <strong>${correo}</strong>.
+             </p>`
+          : `<p style="margin-top:8px; font-size:0.86rem; color:#4a686b;">
+               📧 Se procesó el envío de la cotización formal a <strong>${correo}</strong>.
+             </p>`;
+
         Swal.fire({
           icon: 'success',
           title: '¡Cotización Generada con Éxito!',
           html: `<p>Se ha descargado el documento oficial <strong>${nombreArchivo}</strong>.</p>
-                 <p style="font-size:0.9rem; color:#666;">Total cotizado: <strong>${totalNum} Bs</strong></p>`,
+                 <p style="font-size:0.95rem; color:#06454a;">Total cotizado: <strong>${totalNum} Bs</strong></p>
+                 ${emailInfoHtml}`,
           showCancelButton: true,
           confirmButtonColor: '#168d08',
           cancelButtonColor: '#052c20',

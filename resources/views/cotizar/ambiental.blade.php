@@ -124,19 +124,33 @@
     <td>
       <select class="item-select parametro" required>
         <option value="">Seleccionar parámetro...</option>
-        <option value="Calidad de Aire PTS" data-metodologia="Determinación PST en base a la NB 62014" data-unidad="Punto" data-precio="100.00">Calidad de Aire PTS</option>
-        <option value="Calidad de Aire PM-10" data-metodologia="NB 62014" data-unidad="Punto" data-precio="600.00">Calidad de Aire PM-10</option>
-        <option value="Gases de combustión en fuente fija (CO,NOx y SO2)" data-metodologia="NB 62010" data-unidad="Punto" data-precio="450.00">Gases de combustión en fuente fija (CO,NOx y SO2)</option>
-        <option value="Gases de inmisión CO (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión CO (puntual)</option>
-        <option value="Gases de inmisión NO2 (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión NO2 (puntual)</option>
-        <option value="Gases de inmisión SO2 (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión SO2 (puntual)</option>
-        <option value="Opacidad fuente móvil" data-metodologia="NB 62004" data-unidad="Punto" data-precio="200.00">Opacidad fuente móvil</option>
-        <option value="Gases de combustión de fuente móvil (HC, CO)" data-metodologia="NB 62003" data-unidad="Punto" data-precio="200.00">Gases de combustión de fuente móvil (HC, CO)</option>
-        <option value="Ruido Ambiental de fuente fija" data-metodologia="NB 62006" data-unidad="Punto" data-precio="150.00">Ruido Ambiental de fuente fija</option>
-        <option value="Ruido de fuente móvil" data-metodologia="PT-O-02 Ley 1333" data-unidad="Punto" data-precio="80.00">Ruido de fuente móvil</option>
-        <option value="Monitoreo de Agua Residual según el RMCH y RASIM" data-metodologia="RMCH y RASIM" data-unidad="Punto" data-precio="1000.00">Monitoreo de Agua Residual según el RMCH y RASIM</option>
-        <option value="Monitoreo de Agua Potable según la NB 512" data-metodologia="NB 512" data-unidad="Punto" data-precio="500.00">Monitoreo de Agua Potable según la NB 512</option>
-        <option value="Monitoreo de Suelo (Conductividad, Alcalinidad, Salinidad)" data-metodologia="Norma Técnica Suelos" data-unidad="Punto" data-precio="600.00">Monitoreo de Suelo (Conductividad, Alcalinidad, Salinidad)</option>
+        @php
+          $cotizAmbItems = $cms['cotizador_ambiental_items'] ?? null;
+          if (is_string($cotizAmbItems)) {
+            $cotizAmbItems = json_decode($cotizAmbItems, true);
+          }
+        @endphp
+        @if(!empty($cotizAmbItems) && is_array($cotizAmbItems))
+          @foreach($cotizAmbItems as $item)
+            <option value="{{ $item['nombre'] ?? '' }}" data-metodologia="{{ $item['metodologia'] ?? '' }}" data-unidad="{{ $item['unidad'] ?? 'Punto' }}" data-precio="{{ $item['precio'] ?? '0.00' }}">
+              {{ $item['nombre'] ?? '' }}
+            </option>
+          @endforeach
+        @else
+          <option value="Calidad de Aire PTS" data-metodologia="Determinación PST en base a la NB 62014" data-unidad="Punto" data-precio="100.00">Calidad de Aire PTS</option>
+          <option value="Calidad de Aire PM-10" data-metodologia="NB 62014" data-unidad="Punto" data-precio="600.00">Calidad de Aire PM-10</option>
+          <option value="Gases de combustión en fuente fija (CO,NOx y SO2)" data-metodologia="NB 62010" data-unidad="Punto" data-precio="450.00">Gases de combustión en fuente fija (CO,NOx y SO2)</option>
+          <option value="Gases de inmisión CO (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión CO (puntual)</option>
+          <option value="Gases de inmisión NO2 (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión NO2 (puntual)</option>
+          <option value="Gases de inmisión SO2 (puntual)" data-metodologia="Celda Electroquímica" data-unidad="Punto" data-precio="170.00">Gases de inmisión SO2 (puntual)</option>
+          <option value="Opacidad fuente móvil" data-metodologia="NB 62004" data-unidad="Punto" data-precio="200.00">Opacidad fuente móvil</option>
+          <option value="Gases de combustión de fuente móvil (HC, CO)" data-metodologia="NB 62003" data-unidad="Punto" data-precio="200.00">Gases de combustión de fuente móvil (HC, CO)</option>
+          <option value="Ruido Ambiental de fuente fija" data-metodologia="NB 62006" data-unidad="Punto" data-precio="150.00">Ruido Ambiental de fuente fija</option>
+          <option value="Ruido de fuente móvil" data-metodologia="PT-O-02 Ley 1333" data-unidad="Punto" data-precio="80.00">Ruido de fuente móvil</option>
+          <option value="Monitoreo de Agua Residual según el RMCH y RASIM" data-metodologia="RMCH y RASIM" data-unidad="Punto" data-precio="1000.00">Monitoreo de Agua Residual según el RMCH y RASIM</option>
+          <option value="Monitoreo de Agua Potable según la NB 512" data-metodologia="NB 512" data-unidad="Punto" data-precio="500.00">Monitoreo de Agua Potable según la NB 512</option>
+          <option value="Monitoreo de Suelo (Conductividad, Alcalinidad, Salinidad)" data-metodologia="Norma Técnica Suelos" data-unidad="Punto" data-precio="600.00">Monitoreo de Suelo (Conductividad, Alcalinidad, Salinidad)</option>
+        @endif
       </select>
     </td>
     <td class="col-metodologia">-</td>

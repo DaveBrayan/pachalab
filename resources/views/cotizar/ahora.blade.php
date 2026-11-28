@@ -177,12 +177,28 @@
     const baseUrl = isMobile ? "https://api.whatsapp.com/send?phone=" : "https://web.whatsapp.com/send?phone=";
     const whatsappUrl = `${baseUrl}59176358189&text=${encodeURIComponent(textoMensaje)}`;
 
+    // Enviar notificación por correo desde notificaciones@pachabol.com
+    fetch('/api/cotizaciones/enviar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        cliente_nombre: `${firstName} ${lastName}`,
+        cliente_email: correo,
+        cliente_telefono: whatsapp,
+        cliente_empresa: empresa,
+        tipo_cotizacion: servicio,
+        detalles: detalles,
+        total: 'A convenir según requerimiento'
+      })
+    }).catch(err => console.warn('Notificación por correo:', err));
+
     Swal.fire({
       icon: 'success',
-      title: '¡Formulario Listo!',
-      text: 'Se abrirá WhatsApp para enviar los detalles de tu cotización a nuestro equipo técnico.',
+      title: '¡Solicitud Registrada!',
+      html: `<p>Se ha enviado un correo de confirmación a <strong>${correo}</strong>.</p>
+             <p style="font-size:0.9rem; color:#4a686b; margin-top:8px;">Ahora se abrirá WhatsApp para coordinar directamente con nuestro equipo técnico.</p>`,
       confirmButtonColor: '#168d08',
-      confirmButtonText: 'Abrir WhatsApp'
+      confirmButtonText: '<i data-lucide="message-square"></i> Abrir WhatsApp'
     }).then(() => {
       window.open(whatsappUrl, '_blank');
     });

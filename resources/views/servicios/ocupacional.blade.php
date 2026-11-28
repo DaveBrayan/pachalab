@@ -12,16 +12,15 @@
       <span class="current">Monitoreo Ocupacional</span>
     </nav>
     <div class="hero-pill-badge">
-      <i data-lucide="hard-hat"></i> Seguridad y Salud en el Trabajo (SST) · MTEPS
+      <i data-lucide="hard-hat"></i> {{ $cms['ocpHeroBadge'] ?? 'Seguridad y Salud en el Trabajo (SST) · MTEPS' }}
     </div>
-    <h1>Monitoreo <span>Ocupacional</span></h1>
+    <h1>{!! $cms['ocpHeroTitle'] ?? 'Monitoreo <span>Ocupacional</span>' !!}</h1>
     <p class="lead">
-      Evaluación técnica de agentes físicos, químicos, ergonómicos y psicosociales en puestos de trabajo
-      para proteger la salud de tus colaboradores y cumplir la Ley General de Higiene y Seguridad Ocupacional y normas NTS del Ministerio de Trabajo.
+      {{ $cms['ocpHeroLead'] ?? 'Evaluación técnica de agentes físicos, químicos, ergonómicos y psicosociales en puestos de trabajo para proteger la salud de tus colaboradores y cumplir la Ley General de Higiene y Seguridad Ocupacional y normas NTS del Ministerio de Trabajo.' }}
     </p>
     <div class="subpage-hero-actions">
-      <a class="btn btn-green" href="{{ route('cotizar.ocupacional') }}">
-        <i data-lucide="file-check"></i> Cotización Referencial Online (PDF) <i data-lucide="arrow-right"></i>
+      <a class="btn btn-green" href="{{ !empty($cms['ocpHeroBtnLink']) ? $cms['ocpHeroBtnLink'] : route('cotizar.ocupacional') }}">
+        <i data-lucide="file-check"></i> {{ $cms['ocpHeroBtnCotiz'] ?? 'Cotización Referencial Online (PDF)' }} <i data-lucide="arrow-right"></i>
       </a>
       <a class="btn btn-outline" href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
         <i data-lucide="message-square"></i> Consulta Directa WhatsApp
@@ -39,81 +38,111 @@
   </p>
 
   <div class="details-grid">
-    <!-- 01 AGENTES FÍSICOS -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.01</div>
-      <h3>Agentes Físicos</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Control de factores ambientales que pueden generar fatiga, hipoacusia o accidentes laborales.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Iluminación:</strong> Luxometría en puestos y áreas bajo norma NTS 001/17.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Ruido Ocupacional:</strong> Sonometría y Dosimetría según NTS 002/2017.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Ventilación:</strong> Caudales y renovación de aire según NB 51001-1.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Estrés Térmico:</strong> Confort por calor (ISO 7243) y frío (NTP 462).</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Vibración:</strong> Mano-brazo y cuerpo entero (ISO 5349 e ISO 2631).</span></li>
-      </ul>
-    </article>
+    @php
+      $ocpModulos = $cms['servicios_ocupacional_modulos'] ?? null;
+      if (is_string($ocpModulos)) {
+        $ocpModulos = json_decode($ocpModulos, true);
+      }
+    @endphp
 
-    <!-- 02 AGENTES DISERGONÓMICOS -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.02</div>
-      <h3>Riesgos Disergonómicos</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Prevención de trastornos musculoesqueléticos en puestos de planta, almacén y oficinas administrativas.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Manipulación de Cargas:</strong> Ecuación NIOSH y tablas especializadas.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Posturas Inadecuadas:</strong> Métodos ergonómicos REBA, RULA y OWAS.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Norma NTS 015/23:</strong> Estudio ergonómico integral por puesto y trabajador.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Trabajo en Oficina:</strong> Evaluación de pantallas (PVD), sillas y periféricos.</span></li>
-      </ul>
-    </article>
+    @if(!empty($ocpModulos) && is_array($ocpModulos))
+      @foreach($ocpModulos as $mod)
+        <article class="detail-card spotlight-card tilt-card anim-card">
+          <div class="detail-card-num">{{ $mod['num'] ?? ('.' . sprintf('%02d', $loop->iteration)) }}</div>
+          <h3>{{ $mod['titulo'] ?? '' }}</h3>
+          @if(!empty($mod['subtitulo']))
+            <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+              {{ $mod['subtitulo'] }}
+            </p>
+          @endif
+          @if(!empty($mod['items']) && is_array($mod['items']))
+            <ul class="detail-card-list">
+              @foreach($mod['items'] as $item)
+                @if(trim($item) !== '')
+                  <li><i data-lucide="check-circle-2"></i> <span>{!! $item !!}</span></li>
+                @endif
+              @endforeach
+            </ul>
+          @endif
+        </article>
+      @endforeach
+    @else
+      <!-- 01 AGENTES FÍSICOS -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.01</div>
+        <h3>Agentes Físicos</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Control de factores ambientales que pueden generar fatiga, hipoacusia o accidentes laborales.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Iluminación:</strong> Luxometría en puestos y áreas bajo norma NTS 001/17.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Ruido Ocupacional:</strong> Sonometría y Dosimetría según NTS 002/2017.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Ventilación:</strong> Caudales y renovación de aire según NB 51001-1.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Estrés Térmico:</strong> Confort por calor (ISO 7243) y frío (NTP 462).</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Vibración:</strong> Mano-brazo y cuerpo entero (ISO 5349 e ISO 2631).</span></li>
+        </ul>
+      </article>
 
-    <!-- 03 AGENTES QUÍMICOS -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.03</div>
-      <h3>Agentes Químicos</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Monitoreo de aerosoles, gases y vapores que puedan inhalar los trabajadores en áreas operativas.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Polvo Ocupacional:</strong> Fracción respirable e inhalable (PST, PM10).</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Compuestos Orgánicos Volátiles (COVs):</strong> Vapores y solventes.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Formaldehído (HCHO):</strong> Detección con equipos electroquímicos.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Calidad de Aire Interior:</strong> Concentración de CO2 y monóxido de carbono (CO).</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Gases Peligrosos:</strong> Explosividad (LEL), O2, CO y H2S.</span></li>
-      </ul>
-    </article>
+      <!-- 02 AGENTES DISERGONÓMICOS -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.02</div>
+        <h3>Riesgos Disergonómicos</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Prevención de trastornos musculoesqueléticos en puestos de planta, almacén y oficinas administrativas.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Manipulación de Cargas:</strong> Ecuación NIOSH y tablas especializadas.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Posturas Inadecuadas:</strong> Métodos ergonómicos REBA, RULA y OWAS.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Norma NTS 015/23:</strong> Estudio ergonómico integral por puesto y trabajador.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Trabajo en Oficina:</strong> Evaluación de pantallas (PVD), sillas y periféricos.</span></li>
+        </ul>
+      </article>
 
-    <!-- 04 AGENTES PSICOSOCIALES -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.04</div>
-      <h3>Factores Psicosociales</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Diagnóstico de condiciones de la organización del trabajo que influyen en el bienestar mental y productividad.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Carga Mental y Estrés:</strong> Cuestionarios estandarizados validados.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Factores de Riesgo:</strong> Demandas del trabajo, control y liderazgo.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Planes de Intervención:</strong> Estrategias para comités mixtos de higiene y seguridad.</span></li>
-      </ul>
-    </article>
+      <!-- 03 AGENTES QUÍMICOS -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.03</div>
+        <h3>Agentes Químicos</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Monitoreo de aerosoles, gases y vapores que puedan inhalar los trabajadores en áreas operativas.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Polvo Ocupacional:</strong> Fracción respirable e inhalable (PST, PM10).</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Compuestos Orgánicos Volátiles (COVs):</strong> Vapores y solventes.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Formaldehído (HCHO):</strong> Detección con equipos electroquímicos.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Calidad de Aire Interior:</strong> Concentración de CO2 y monóxido de carbono (CO).</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Gases Peligrosos:</strong> Explosividad (LEL), O2, CO y H2S.</span></li>
+        </ul>
+      </article>
 
-    <!-- 05 RIESGO DE INCENDIO & SIPPCI -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.05</div>
-      <h3>Carga de Fuego & SIPPCI</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Ingeniería contra incendios para proteger infraestructura y cumplir requerimientos de Bomberos y el MTEPS.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Estudio de Carga de Fuego:</strong> Según normas NB 58002 y NB 58005.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Dotación de Extintores:</strong> Cálculo de potencial extintor y distribución.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Certificación SIPPCI:</strong> Elaboración de carpetas y trámites ante Bomberos.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Planes de Emergencia:</strong> Rutas de evacuación y brigadas de rescate.</span></li>
-      </ul>
-    </article>
+      <!-- 04 AGENTES PSICOSOCIALES -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.04</div>
+        <h3>Factores Psicosociales</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Diagnóstico de condiciones de la organización del trabajo que influyen en el bienestar mental y productividad.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Carga Mental y Estrés:</strong> Cuestionarios estandarizados validados.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Factores de Riesgo:</strong> Demandas del trabajo, control y liderazgo.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Planes de Intervención:</strong> Estrategias para comités mixtos de higiene y seguridad.</span></li>
+        </ul>
+      </article>
+
+      <!-- 05 RIESGO DE INCENDIO & SIPPCI -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.05</div>
+        <h3>Carga de Fuego & SIPPCI</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Ingeniería contra incendios para proteger infraestructura y cumplir requerimientos de Bomberos y el MTEPS.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Estudio de Carga de Fuego:</strong> Según normas NB 58002 y NB 58005.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Dotación de Extintores:</strong> Cálculo de potencial extintor y distribución.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Certificación SIPPCI:</strong> Elaboración de carpetas y trámites ante Bomberos.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Planes de Emergencia:</strong> Rutas de evacuación y brigadas de rescate.</span></li>
+        </ul>
+      </article>
+    @endif
   </div>
 </section>
 

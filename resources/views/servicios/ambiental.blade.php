@@ -12,16 +12,15 @@
       <span class="current">Monitoreo Ambiental</span>
     </nav>
     <div class="hero-pill-badge">
-      <i data-lucide="leaf"></i> Gestión Ambiental & Cumplimiento Normativo
+      <i data-lucide="leaf"></i> {{ $cms['ambHeroBadge'] ?? 'Gestión Ambiental & Cumplimiento Normativo' }}
     </div>
-    <h1>Monitoreo <span>Ambiental</span></h1>
+    <h1>{!! $cms['ambHeroTitle'] ?? 'Monitoreo <span>Ambiental</span>' !!}</h1>
     <p class="lead">
-      Realizamos mediciones precisas de calidad de aire, agua, ruido y gases de combustión,
-      asegurando el estricto cumplimiento de normativas ambientales (Ley 1333, RMCH, RASIM) y estándares internacionales.
+      {{ $cms['ambHeroLead'] ?? 'Realizamos mediciones precisas de calidad de aire, agua, ruido y gases de combustión, asegurando el estricto cumplimiento de normativas ambientales (Ley 1333, RMCH, RASIM) y estándares internacionales.' }}
     </p>
     <div class="subpage-hero-actions">
-      <a class="btn btn-green" href="{{ route('cotizar.ambiental') }}">
-        <i data-lucide="file-text"></i> Cotización Referencial Online (PDF) <i data-lucide="arrow-right"></i>
+      <a class="btn btn-green" href="{{ !empty($cms['ambHeroBtnLink']) ? $cms['ambHeroBtnLink'] : route('cotizar.ambiental') }}">
+        <i data-lucide="file-text"></i> {{ $cms['ambHeroBtnCotiz'] ?? 'Cotización Referencial Online (PDF)' }} <i data-lucide="arrow-right"></i>
       </a>
       <a class="btn btn-outline" href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
         <i data-lucide="message-square"></i> Consulta Directa WhatsApp
@@ -39,61 +38,91 @@
   </p>
 
   <div class="details-grid">
-    <!-- 01 AGUA -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.01</div>
-      <h3>Calidad de Agua</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Evaluación integral de fuentes hídricas para industrias, minería, municipios y plantas de tratamiento.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Aguas Residuales:</strong> Cumplimiento del RMCH y RASIM para descargas.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Agua Potable:</strong> Parámetros fisicoquímicos y microbiológicos según NB 512.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Suelos:</strong> Conductividad, alcalinidad, salinidad y metales pesados.</span></li>
-      </ul>
-    </article>
+    @php
+      $ambModulos = $cms['servicios_ambiental_modulos'] ?? null;
+      if (is_string($ambModulos)) {
+        $ambModulos = json_decode($ambModulos, true);
+      }
+    @endphp
 
-    <!-- 02 GASES DE COMBUSTIÓN -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.02</div>
-      <h3>Gases de Combustión</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Diagnóstico de emisiones directas para calderas, hornos, generadores y parques automotores.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Fuentes Fijas:</strong> Medición de CO, NOx y SO2 según NB 62010.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Fuentes Móviles:</strong> Monitoreo de HC y CO bajo norma NB 62003.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Opacidad:</strong> Ensayos para vehículos diésel según NB 62004.</span></li>
-      </ul>
-    </article>
+    @if(!empty($ambModulos) && is_array($ambModulos))
+      @foreach($ambModulos as $mod)
+        <article class="detail-card spotlight-card tilt-card anim-card">
+          <div class="detail-card-num">{{ $mod['num'] ?? ('.' . sprintf('%02d', $loop->iteration)) }}</div>
+          <h3>{{ $mod['titulo'] ?? '' }}</h3>
+          @if(!empty($mod['subtitulo']))
+            <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+              {{ $mod['subtitulo'] }}
+            </p>
+          @endif
+          @if(!empty($mod['items']) && is_array($mod['items']))
+            <ul class="detail-card-list">
+              @foreach($mod['items'] as $item)
+                @if(trim($item) !== '')
+                  <li><i data-lucide="check-circle-2"></i> <span>{!! $item !!}</span></li>
+                @endif
+              @endforeach
+            </ul>
+          @endif
+        </article>
+      @endforeach
+    @else
+      <!-- 01 AGUA -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.01</div>
+        <h3>Calidad de Agua</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Evaluación integral de fuentes hídricas para industrias, minería, municipios y plantas de tratamiento.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Aguas Residuales:</strong> Cumplimiento del RMCH y RASIM para descargas.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Agua Potable:</strong> Parámetros fisicoquímicos y microbiológicos según NB 512.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Suelos:</strong> Conductividad, alcalinidad, salinidad y metales pesados.</span></li>
+        </ul>
+      </article>
 
-    <!-- 03 CALIDAD DE AIRE -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.03</div>
-      <h3>Calidad de Aire</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Control de partículas e inmisión atmosférica en áreas perimetrales y comunidades de influencia.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>PM-10 y PM-2.5:</strong> Determinación gravimétrica en base a NB 62014.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Partículas Suspendidas Totales (PST):</strong> Muestreo de alto volumen.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Gases de Inmisión:</strong> CO, NO2 y SO2 puntual con celda electroquímica.</span></li>
-      </ul>
-    </article>
+      <!-- 02 GASES DE COMBUSTIÓN -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.02</div>
+        <h3>Gases de Combustión</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Diagnóstico de emisiones directas para calderas, hornos, generadores y parques automotores.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Fuentes Fijas:</strong> Medición de CO, NOx y SO2 según NB 62010.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Fuentes Móviles:</strong> Monitoreo de HC y CO bajo norma NB 62003.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Opacidad:</strong> Ensayos para vehículos diésel según NB 62004.</span></li>
+        </ul>
+      </article>
 
-    <!-- 04 RUIDO AMBIENTAL -->
-    <article class="detail-card spotlight-card tilt-card anim-card">
-      <div class="detail-card-num">.04</div>
-      <h3>Ruido Ambiental</h3>
-      <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
-        Evaluación de niveles sonoros continuos y fluctuantes para evitar contaminación acústica.
-      </p>
-      <ul class="detail-card-list">
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Fuente Fija:</strong> Monitoreo diurno y nocturno bajo NB 62006.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Fuente Móvil:</strong> Mediciones según PT-O-02 Ley 1333.</span></li>
-        <li><i data-lucide="check-circle-2"></i> <span><strong>Estudio de Impacto Sonoro:</strong> Mapas de dispersión acústica e informes.</span></li>
-      </ul>
-    </article>
+      <!-- 03 CALIDAD DE AIRE -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.03</div>
+        <h3>Calidad de Aire</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Control de partículas e inmisión atmosférica en áreas perimetrales y comunidades de influencia.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>PM-10 y PM-2.5:</strong> Determinación gravimétrica en base a NB 62014.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Partículas Suspendidas Totales (PST):</strong> Muestreo de alto volumen.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Gases de Inmisión:</strong> CO, NO2 y SO2 puntual con celda electroquímica.</span></li>
+        </ul>
+      </article>
+
+      <!-- 04 RUIDO AMBIENTAL -->
+      <article class="detail-card spotlight-card tilt-card anim-card">
+        <div class="detail-card-num">.04</div>
+        <h3>Ruido Ambiental</h3>
+        <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+          Evaluación de niveles sonoros continuos y fluctuantes para evitar contaminación acústica.
+        </p>
+        <ul class="detail-card-list">
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Fuente Fija:</strong> Monitoreo diurno y nocturno bajo NB 62006.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Fuente Móvil:</strong> Mediciones según PT-O-02 Ley 1333.</span></li>
+          <li><i data-lucide="check-circle-2"></i> <span><strong>Estudio de Impacto Sonoro:</strong> Mapas de dispersión acústica e informes.</span></li>
+        </ul>
+      </article>
+    @endif
   </div>
 </section>
 

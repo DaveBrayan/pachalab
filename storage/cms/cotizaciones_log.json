@@ -1,0 +1,28 @@
+[
+    {
+        "codigo": "01-26-COT-REF",
+        "tipo": "ambiental",
+        "tipo_nombre": "Monitoreo Ambiental",
+        "cliente_nombre": "Deivid Chipana",
+        "cliente_email": "musicdeiv79@gmail.com",
+        "cliente_telefono": "71234567",
+        "cliente_empresa": "Prueba",
+        "departamento": "La Paz",
+        "cargo": "Sistemas",
+        "total": "160.00",
+        "items": [
+            {
+                "parametro": "Ruido de fuente móvil",
+                "metodologia": "PT-O-02 Ley 1333",
+                "unidad": "Punto",
+                "cantidad": "2",
+                "precio": "80.00",
+                "subtotal": "160.00"
+            }
+        ],
+        "detalles": "",
+        "estado": "pendiente",
+        "email_enviado": 1,
+        "created_at": "2026-11-28 07:30:40"
+    }
+]

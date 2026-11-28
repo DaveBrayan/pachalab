@@ -5,8 +5,7 @@
         <span class="brand-mark"><i data-lucide="leaf"></i></span>
         <span>Pacha<span>Lab</span><small>PACHABOL SRL</small></span>
       </a>
-      <p>La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados
-        precisos y confiables, asegurando el cumplimiento normativo nacional e internacional.</p>
+      <p>{{ $cms['footer_desc'] ?? 'La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo nacional e internacional.' }}</p>
     </div>
     <div>
       <h4>Menú y Servicios</h4>
@@ -31,17 +30,17 @@
     <div>
       <h4>Contáctanos</h4>
       <div class="footer-contact">
-        <a href="mailto:laboratorio@pachabol.com"><i data-lucide="mail"></i> laboratorio@pachabol.com</a>
-        <a href="https://wa.link/3lf4u6" target="_blank" rel="noopener"><i data-lucide="phone"></i> 76358189 (WhatsApp)</a>
-        <a href="https://www.facebook.com/pachaconsultingbolivia" target="_blank" rel="noopener"><i data-lucide="share-2"></i> Facebook · Pacha Consulting</a>
+        <a href="mailto:{{ $cms['contact_email'] ?? 'laboratorio@pachabol.com' }}"><i data-lucide="mail"></i> {{ $cms['contact_email'] ?? 'laboratorio@pachabol.com' }}</a>
+        <a href="{{ $cms['contact_wa_link'] ?? 'https://wa.link/3lf4u6' }}" target="_blank" rel="noopener"><i data-lucide="phone"></i> {{ $cms['contact_wa'] ?? '76358189 (WhatsApp)' }}</a>
+        <a href="https://www.facebook.com/pachaconsultingbolivia" target="_blank" rel="noopener"><i data-lucide="share-2"></i> {{ $cms['contact_fb'] ?? 'Facebook · Pacha Consulting' }}</a>
         <span style="font-size: 0.85rem; color: #a5b9b3; margin-top: 6px; display: block;">
-          Av. Raúl Salmón #26, Edif. Victoria, P. Baja Of. 7 · La Paz - Bolivia
+          {{ $cms['contact_address'] ?? 'Av. Raúl Salmón #26, Edif. Victoria, P. Baja Of. 7 · La Paz - Bolivia' }}
         </span>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© {{ date('Y') }} PachaLab — PACHABOL SRL. Todos los derechos reservados.</span>
-    <span>Monitoreo Ambiental · Monitoreo Ocupacional · Alquiler de Equipos</span>
+    <span>{{ $cms['footer_copy'] ?? '© ' . date('Y') . ' PachaLab — PACHABOL SRL. Todos los derechos reservados.' }}</span>
+    <span>{{ $cms['footer_subline'] ?? 'Monitoreo Ambiental · Monitoreo Ocupacional · Alquiler de Equipos' }}</span>
   </div>
 </footer>

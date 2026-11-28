@@ -21,21 +21,20 @@
 
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow"><i data-lucide="sprout"></i> Bienvenidos a PachaLab</div>
-          <h1>Especialistas en<br>Monitoreo Ambiental<br><span>y Ocupacional</span></h1>
-          <p>La seguridad de tus proyectos comienza con datos confiables. Confía en <b>PachaLab</b> para obtener
-            resultados precisos y confiables, asegurando el cumplimiento normativo.</p>
+          <div class="eyebrow"><i data-lucide="sprout"></i> {{ $cms['home_hero_eyebrow'] ?? 'Bienvenidos a PachaLab' }}</div>
+          <h1>{!! nl2br(e($cms['home_hero_title'] ?? "Especialistas en\nMonitoreo Ambiental\ny Ocupacional")) !!}</h1>
+          <p>{{ $cms['home_hero_desc'] ?? 'La seguridad de tus proyectos comienza con datos confiables. Confía en PachaLab para obtener resultados precisos y confiables, asegurando el cumplimiento normativo.' }}</p>
           <div class="hero-actions">
-            <a class="btn btn-green" href="{{ route('cotizar.ahora') }}">
-              <i data-lucide="calculator"></i> Cotizar ahora <i data-lucide="arrow-right"></i>
+            <a class="btn btn-green" href="{{ $cms['home_hero_btn1_link'] ?? route('cotizar.ahora') }}">
+              <i data-lucide="calculator"></i> {{ $cms['home_hero_btn1_text'] ?? 'Cotizar ahora' }} <i data-lucide="arrow-right"></i>
             </a>
-            <a class="btn btn-outline" href="#quienes-somos">
-              <i data-lucide="play" style="color:#198c0b"></i> ¿Quiénes somos?
+            <a class="btn btn-outline" href="{{ $cms['home_hero_btn2_link'] ?? '#quienes-somos' }}">
+              <i data-lucide="play" style="color:#198c0b"></i> {{ $cms['home_hero_btn2_text'] ?? '¿Quiénes somos?' }}
             </a>
           </div>
         </div>
         <div class="hero-visual">
-          <img src="{{ asset('images/hero.png') }}" alt="Especialista ambiental de PachaLab">
+          <img src="{{ asset($cms['home_hero_img'] ?? 'images/hero.png') }}" alt="Especialista ambiental de PachaLab">
         </div>
       </section>
     </header>
@@ -44,13 +43,10 @@
       <section class="section" id="quienes-somos">
         <div class="about-grid">
           <div class="about-copy anim-left">
-            <div class="section-kicker">PACHABOL SRL</div>
-            <h2>¿Quiénes somos?</h2>
-            <p>PachaLab es parte de la consultora internacional <b>PACHABOL SRL</b> que cuenta con los más altos
-              estándares de calidad exigidos por nuestros clientes: instituciones, empresas, industrias y otros. Nuestra
-              experiencia y compromiso nos posicionan como referentes en monitoreo ambiental, ocupacional y en el
-              suministro de equipos especializados.</p>
-            <span class="about-badge"><i data-lucide="badge-check"></i> Estándares de calidad y trazabilidad nacional e internacional</span>
+            <div class="section-kicker">{{ $cms['home_about_kicker'] ?? $cms['homeAboutKicker'] ?? 'PACHABOL SRL' }}</div>
+            <h2>{{ $cms['home_about_title'] ?? $cms['homeAboutTitle'] ?? '¿Quiénes somos?' }}</h2>
+            <p>{{ $cms['home_about_desc'] ?? $cms['homeAboutDesc'] ?? 'PachaLab es parte de la consultora internacional PACHABOL SRL que cuenta con los más altos estándares de calidad exigidos por nuestros clientes: instituciones, empresas, industrias y otros. Nuestra experiencia y compromiso nos posicionan como referentes en monitoreo ambiental, ocupacional y en el suministro de equipos especializados.' }}</p>
+            <span class="about-badge"><i data-lucide="badge-check"></i> {{ $cms['home_about_badge'] ?? $cms['homeAboutBadge'] ?? 'Estándares de calidad y trazabilidad nacional e internacional' }}</span>
           </div>
           <div class="certs-box anim-right">
             <div class="certs-head">
@@ -63,21 +59,21 @@
                   <span class="cert-dot"><i data-lucide="check"></i></span>
                   <span class="cert-code">01 · MMAyA</span>
                 </div>
-                <span class="cert-text">Consultores Ambientales categoría “C” con registro en el Ministerio de Producción Sostenible, Medio Ambiente y Agua.</span>
+                <span class="cert-text">{{ $cms['home_cert1'] ?? $cms['homeCert1'] ?? 'Consultores Ambientales categoría “C” con registro en el Ministerio de Producción Sostenible, Medio Ambiente y Agua.' }}</span>
               </div>
               <div class="cert-item spotlight-card tilt-card anim-card">
                 <div class="cert-top">
                   <span class="cert-dot"><i data-lucide="check"></i></span>
                   <span class="cert-code">02 · MTEPS</span>
                 </div>
-                <span class="cert-text">Profesionales en Seguridad Ocupacional categoría “A” con registro en el Ministerio de Trabajo, Empleo y Previsión Social.</span>
+                <span class="cert-text">{{ $cms['home_cert2'] ?? $cms['homeCert2'] ?? 'Profesionales en Seguridad Ocupacional categoría “A” con registro en el Ministerio de Trabajo, Empleo y Previsión Social.' }}</span>
               </div>
               <div class="cert-item spotlight-card tilt-card anim-card cert-item-wide">
                 <div class="cert-top">
                   <span class="cert-dot"><i data-lucide="check"></i></span>
                   <span class="cert-code">03 · Equipo Técnico</span>
                 </div>
-                <span class="cert-text">Personal técnico con amplia experiencia y capacitación constante.</span>
+                <span class="cert-text">{{ $cms['home_cert3'] ?? $cms['homeCert3'] ?? 'Personal técnico con amplia experiencia y capacitación constante.' }}</span>
               </div>
             </div>
           </div>
@@ -186,27 +182,26 @@
       <section class="commit" id="compromiso">
         <div class="commit-particles" id="commitParticles" aria-hidden="true"></div>
         <div class="commit-copy anim-left">
-          <div class="pill"><i data-lucide="sprout"></i> Nuestro Compromiso</div>
-          <h2 class="split-heading">Calidad, respaldo y resultados confiables</h2>
-          <p>Acompañamos a instituciones, empresas e industrias en todo el país con datos precisos y cumplimiento
-            normativo garantizado.</p>
-          <a class="btn btn-lime" href="#cotizar">Cotiza en Línea <i data-lucide="arrow-right"></i></a>
+          <div class="pill"><i data-lucide="sprout"></i> {{ $cms['commit_pill'] ?? $cms['commitPill'] ?? 'Nuestro Compromiso' }}</div>
+          <h2 class="split-heading">{{ $cms['commit_title'] ?? $cms['commitTitle'] ?? 'Calidad, respaldo y resultados confiables' }}</h2>
+          <p>{{ $cms['commit_desc'] ?? $cms['commitDesc'] ?? 'Acompañamos a instituciones, empresas e industrias en todo el país con datos precisos y cumplimiento normativo garantizado.' }}</p>
+          <a class="btn btn-lime" href="{{ $cms['commit_btn_link'] ?? $cms['commitBtnLink'] ?? '#cotizar' }}">{{ $cms['commit_btn_text'] ?? $cms['commitBtnText'] ?? 'Cotiza en Línea' }} <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="stats">
           <div class="stat spotlight-card anim-card tilt-card">
             <div class="ico"><i data-lucide="trophy"></i></div>
-            <strong data-count="100" data-prefix="+">+100</strong>
-            <small>Casos de Éxito Completados</small>
+            <strong data-count="100" data-prefix="+">{{ $cms['commit_stat1_val'] ?? $cms['commitStat1Val'] ?? '+100' }}</strong>
+            <small>{{ $cms['commit_stat1_lbl'] ?? $cms['commitStat1Lbl'] ?? 'Casos de Éxito Completados' }}</small>
           </div>
           <div class="stat spotlight-card anim-card tilt-card">
             <div class="ico"><i data-lucide="shield-check"></i></div>
-            <strong data-count="100" data-suffix="%">100%</strong>
-            <small>Calidad del Servicio</small>
+            <strong data-count="100" data-suffix="%">{{ $cms['commit_stat2_val'] ?? $cms['commitStat2Val'] ?? '100%' }}</strong>
+            <small>{{ $cms['commit_stat2_lbl'] ?? $cms['commitStat2Lbl'] ?? 'Calidad del Servicio' }}</small>
           </div>
           <div class="stat spotlight-card anim-card tilt-card">
             <div class="ico"><i data-lucide="heart-handshake"></i></div>
-            <strong data-count="50" data-prefix="+">+50</strong>
-            <small>Confianza de Nuestros Clientes</small>
+            <strong data-count="50" data-prefix="+">{{ $cms['commit_stat3_val'] ?? $cms['commitStat3Val'] ?? '+50' }}</strong>
+            <small>{{ $cms['commit_stat3_lbl'] ?? $cms['commitStat3Lbl'] ?? 'Confianza de Nuestros Clientes' }}</small>
           </div>
         </div>
         <div class="commit-visual anim-right" aria-label="Globo 3D interactivo de cobertura PachaLab">
@@ -214,16 +209,15 @@
           <div class="orbit-ring" aria-hidden="true"></div>
           <div class="orbit-ring-2" aria-hidden="true"></div>
           <canvas id="commitGlobe" width="300" height="300"></canvas>
-          <div class="commit-float-badge"><span></span> Cobertura Nacional · Bolivia</div>
+          <div class="commit-float-badge"><span></span> {{ $cms['commit_badge_text'] ?? $cms['commitBadgeText'] ?? 'Cobertura Nacional · Bolivia' }}</div>
         </div>
       </section>
 
       <section class="process" id="cotizar">
         <div class="section-head">
-          <div class="section-kicker anim-up">Cotiza en Línea</div>
-          <h2 class="split-heading">Solicita tu presupuesto rápido y sin compromiso</h2>
-          <p class="anim-up">Completa el formulario detallando los servicios que necesitas y recibe un presupuesto inmediato listo para
-            descargar.</p>
+          <div class="section-kicker anim-up">{{ $cms['process_kicker'] ?? $cms['processKicker'] ?? 'Cotiza en Línea' }}</div>
+          <h2 class="split-heading">{{ $cms['process_title'] ?? $cms['processTitle'] ?? 'Solicita tu presupuesto rápido y sin compromiso' }}</h2>
+          <p class="anim-up">{{ $cms['process_desc'] ?? $cms['processDesc'] ?? 'Completa el formulario detallando los servicios que necesitas y recibe un presupuesto inmediato listo para descargar.' }}</p>
         </div>
 
         <div class="steps">
@@ -234,8 +228,8 @@
               <span class="step-icon"><i data-lucide="clock-3"></i></span>
             </div>
             <div>
-              <h3>Respuesta en menos de 24 horas</h3>
-              <p>Atención ágil y oportuna para tus requerimientos técnicos.</p>
+              <h3>{{ $cms['step1_title'] ?? $cms['step1Title'] ?? 'Respuesta en menos de 24 horas' }}</h3>
+              <p>{{ $cms['step1_desc'] ?? $cms['step1Desc'] ?? 'Atención ágil y oportuna para tus requerimientos técnicos.' }}</p>
             </div>
           </article>
           <article class="step spotlight-card anim-card tilt-card">
@@ -245,8 +239,8 @@
               <span class="step-icon"><i data-lucide="message-circle-check"></i></span>
             </div>
             <div>
-              <h3>Asesoría gratuita</h3>
-              <p>Orientación especializada para definir el alcance de tu proyecto.</p>
+              <h3>{{ $cms['step2_title'] ?? $cms['step2Title'] ?? 'Asesoría gratuita' }}</h3>
+              <p>{{ $cms['step2_desc'] ?? $cms['step2Desc'] ?? 'Orientación especializada para definir el alcance de tu proyecto.' }}</p>
             </div>
           </article>
           <article class="step spotlight-card anim-card tilt-card">
@@ -256,8 +250,8 @@
               <span class="step-icon"><i data-lucide="map-pinned"></i></span>
             </div>
             <div>
-              <h3>Servicio en todo el país</h3>
-              <p>Cobertura nacional con equipos calibrados y personal certificado.</p>
+              <h3>{{ $cms['step3_title'] ?? $cms['step3Title'] ?? 'Servicio en todo el país' }}</h3>
+              <p>{{ $cms['step3_desc'] ?? $cms['step3Desc'] ?? 'Cobertura nacional con equipos calibrados y personal certificado.' }}</p>
             </div>
           </article>
         </div>
@@ -313,35 +307,34 @@
         <div class="feedback-copy">
           <div class="feedback-icon"><i data-lucide="file-text"></i></div>
           <div>
-            <h3>Sugerencias de mejora</h3>
-            <p>Queremos ofrecerte siempre el mejor servicio. Si deseas enviarnos una queja o sugerencia sobre la
-              atención recibida, descarga el formulario y compártenos tus comentarios.</p>
+            <h3>{{ $cms['feedback_title'] ?? $cms['feedbackTitle'] ?? 'Sugerencias de mejora' }}</h3>
+            <p>{{ $cms['feedback_desc'] ?? $cms['feedbackDesc'] ?? 'Queremos ofrecerte siempre el mejor servicio. Si deseas enviarnos una queja o sugerencia sobre la atención recibida, descarga el formulario y compártenos tus comentarios.' }}</p>
           </div>
         </div>
         <a class="btn btn-green"
-          href="https://pachalab.pachabol.com/wp-content/uploads/2025/10/Sugerencias-de-mejora.pdf" target="_blank"
-          rel="noopener"><i data-lucide="file-down"></i> Descargar formulario <i data-lucide="arrow-right"></i></a>
+          href="{{ $cms['feedback_pdf_url'] ?? $cms['feedbackPdfUrl'] ?? 'https://pachalab.pachabol.com/wp-content/uploads/2025/10/Sugerencias-de-mejora.pdf' }}" target="_blank"
+          rel="noopener"><i data-lucide="file-down"></i> {{ $cms['feedback_btn_text'] ?? $cms['feedbackBtnText'] ?? 'Descargar formulario' }} <i data-lucide="arrow-right"></i></a>
       </section>
 
       <!-- SECCIÓN CONTACTO / COTIZACIÓN PERSONALIZADA (OCULTA EN MODO REFERENCIAL) -->
       <section class="contact is-hidden" id="contacto">
         <div class="contact-copy anim-left">
-          <div class="pill"><i data-lucide="mail"></i> Contáctanos</div>
-          <h2>¿Necesitas un servicio?<br>Contáctanos ahora</h2>
-          <p>La seguridad de tus proyectos comienza con datos confiables. Solicita tu cotización personalizada para proyectos a medida, estudios complejos o licitaciones.</p>
-          <a class="btn btn-lime" href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
-            <i data-lucide="message-square"></i> WhatsApp 76358189 <i data-lucide="arrow-right"></i>
+          <div class="pill"><i data-lucide="mail"></i> {{ $cms['contact_pill'] ?? $cms['contactPill'] ?? 'Contáctanos' }}</div>
+          <h2>{!! nl2br(e($cms['contact_title'] ?? $cms['contactTitle'] ?? "¿Necesitas un servicio?\nContáctanos ahora")) !!}</h2>
+          <p>{{ $cms['contact_desc'] ?? $cms['contactDesc'] ?? 'La seguridad de tus proyectos comienza con datos confiables. Solicita tu cotización personalizada para proyectos a medida, estudios complejos o licitaciones.' }}</p>
+          <a class="btn btn-lime" href="{{ $cms['contact_wa_link'] ?? $cms['contactWaLink'] ?? 'https://wa.link/3lf4u6' }}" target="_blank" rel="noopener">
+            <i data-lucide="message-square"></i> WhatsApp {{ $cms['contact_wa'] ?? $cms['contactWa'] ?? '76358189' }} <i data-lucide="arrow-right"></i>
           </a>
         </div>
         <div class="contact-info anim-up">
-          <a href="https://wa.link/3lf4u6" target="_blank" rel="noopener">
-            <b><i data-lucide="phone"></i></b><span>76358189 (WhatsApp)</span>
+          <a href="{{ $cms['contact_wa_link'] ?? $cms['contactWaLink'] ?? 'https://wa.link/3lf4u6' }}" target="_blank" rel="noopener">
+            <b><i data-lucide="phone"></i></b><span>{{ $cms['contact_wa'] ?? $cms['contactWa'] ?? '76358189 (WhatsApp)' }}</span>
           </a>
-          <a href="mailto:laboratorio@pachabol.com">
-            <b><i data-lucide="mail"></i></b><span>laboratorio@pachabol.com</span>
+          <a href="mailto:{{ $cms['contact_email'] ?? $cms['contactEmail'] ?? 'laboratorio@pachabol.com' }}">
+            <b><i data-lucide="mail"></i></b><span>{{ $cms['contact_email'] ?? $cms['contactEmail'] ?? 'laboratorio@pachabol.com' }}</span>
           </a>
           <a href="https://www.facebook.com/pachaconsultingbolivia" target="_blank" rel="noopener">
-            <b><i data-lucide="share-2"></i></b><span>Facebook · Pacha Consulting Bolivia</span>
+            <b><i data-lucide="share-2"></i></b><span>{{ $cms['contact_fb'] ?? $cms['contactFb'] ?? 'Facebook · Pacha Consulting Bolivia' }}</span>
           </a>
         </div>
         <form class="contact-form anim-right" id="quoteForm">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CotizacionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +53,8 @@ Route::get('/cotiza-venta-y-alquiler-de-equipos', function () {
 Route::get('/cotiza-alquiler-de-equipos', function () {
     return view('cotizar.equipos');
 });
+
+// API de Envío de Cotizaciones por Correo Electrónico (notificaciones@pachabol.com)
+Route::get('/api/cotizaciones/siguiente-codigo', [CotizacionController::class, 'siguienteCodigo'])->name('cotizaciones.siguiente-codigo');
+Route::post('/api/cotizaciones/enviar', [CotizacionController::class, 'enviarCorreo'])->name('cotizaciones.enviar');
+Route::post('/api/cotizaciones/test-email', [CotizacionController::class, 'probarSmtp'])->name('cotizaciones.test');
